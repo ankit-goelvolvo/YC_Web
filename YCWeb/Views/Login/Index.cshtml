@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="~/Images/img-01.png" alt="IMG">
+            </div>
+
+            <form class="login100-form validate-form" id="formLogin" onsubmit="return false">
+                <span class="login100-form-title">
+                    Member Login
+                </span>
+
+                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="username" placeholder="Username">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100" id="pass">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+
+                <div class="text-center p-t-12">
+                    <p class="txt2 text-danger" id="mobileError"></p>
+                    <p class="txt2 text-danger" id="passwordError"></p>
+                </div>
+
+                <div class="text-center p-t-12">
+                    <span class="txt1">
+                        Forgot
+                    </span>
+                    <a class="txt2" href="#">
+                        Username / Password?
+                    </a>
+                </div>
+
+                <div class="text-center p-t-136">
+                    <a class="txt2" href="/Login/SignUp/">
+                        Create your Account
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+    </div>
+    </div>
+</div>
+<div id="modal-loader" class="visible fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/popper.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/select2.min.js"></script>
+<script src="~/Scripts/tilt.jquery.min.js"></script>
+<script>
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+<script src="~/Scripts/Login/main.js"></script>

@@ -1,0 +1,82 @@
+﻿@model YCWeb.Data.Location
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Location</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LocationName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LocationName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Latitude)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Longitude)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User.FirstName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User1.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User1.FirstName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.LocationID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

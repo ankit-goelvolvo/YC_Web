@@ -1,0 +1,61 @@
+﻿@model IEnumerable<YCWeb.Data.OfficeType>
+
+@{
+    Layout = null;
+}
+
+<p>
+    <button onclick="CreateOfficeType();" class="btn btn-success">Create</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Office Type Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Created By
+        </th>
+        <th>
+            Created Date
+        </th>
+        <th>
+            Updated By
+        </th>
+        <th>
+            Updated Date
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User1.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                <a href="#" onclick="EditOfficeType(@item.OfficeTypeID)">Edit</a> |
+                <a href="#" onclick="DeleteOfficeType(@item.OfficeTypeID)">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

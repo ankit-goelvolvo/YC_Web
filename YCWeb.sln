@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YCWeb", "YCWeb\YCWeb.csproj", "{A302A929-61D6-4D4E-AFA4-5281C763B779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YCWeb.Tests", "YCWeb.Tests\YCWeb.Tests.csproj", "{3656B8A0-D838-42FF-A747-337E8DB92E01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A302A929-61D6-4D4E-AFA4-5281C763B779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A302A929-61D6-4D4E-AFA4-5281C763B779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A302A929-61D6-4D4E-AFA4-5281C763B779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A302A929-61D6-4D4E-AFA4-5281C763B779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3656B8A0-D838-42FF-A747-337E8DB92E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3656B8A0-D838-42FF-A747-337E8DB92E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3656B8A0-D838-42FF-A747-337E8DB92E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3656B8A0-D838-42FF-A747-337E8DB92E01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E5A63AA-A5B6-43DA-B751-06B3276C0EC3}
+	EndGlobalSection
+EndGlobal

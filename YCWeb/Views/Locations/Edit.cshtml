@@ -1,0 +1,54 @@
+﻿@model YCWeb.Data.Location
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Get, new { id = "formEditLocation" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.HiddenFor(model => model.LocationID)
+    @Html.HiddenFor(model => model.CreatedBy)
+    @Html.HiddenFor(model => model.CreatedDate)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LocationName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LocationName, new { htmlAttributes = new { @class = "form-control", id = "txtlocationname" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", id = "txtlatitude" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", id = "txtlongitude" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CreatedBy, "Created By", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <span class="form-control noBorder">@Model.User.FirstName @Model.User.LastName</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Update" class="btn btn-success" onclick="updateLocation();" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    <button onclick="OpenLocation();" class="BackList">Back to List</button>
+</div>

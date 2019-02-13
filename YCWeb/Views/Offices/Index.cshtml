@@ -1,0 +1,85 @@
+﻿@model IEnumerable<YCWeb.Data.Office>
+
+@{
+    Layout = null;
+}
+
+<p>
+    <button onclick="CreateOffice();" class="btn btn-success">Create</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CGST)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SGST)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficeType.OfficeTypeName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckOut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CGST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SGST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.LocationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeType.OfficeTypeName)
+            </td>
+            <td>
+                <a href="#" onclick="EditOffice(@item.OfficeID)">Edit</a> |
+                <a href="#" onclick="DeleteOffice(@item.OfficeID)">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

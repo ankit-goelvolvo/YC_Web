@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YCModelStoreContainer" CdmEntityContainer="YCEntities">
+    <EntitySetMapping Name="Billings">
+      <EntityTypeMapping TypeName="YCModel.Billing">
+        <MappingFragment StoreEntitySet="Billing">
+          <ScalarProperty Name="BillingID" ColumnName="BillingID" />
+          <ScalarProperty Name="HotelBookingID" ColumnName="HotelBookingID" />
+          <ScalarProperty Name="BillingDate" ColumnName="BillingDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HotelBookings">
+      <EntityTypeMapping TypeName="YCModel.HotelBooking">
+        <MappingFragment StoreEntitySet="HotelBooking">
+          <ScalarProperty Name="HotelBookingID" ColumnName="HotelBookingID" />
+          <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="BookingStatusID" ColumnName="BookingStatusID" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="Adults" ColumnName="Adults" />
+          <ScalarProperty Name="Children" ColumnName="Children" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="YCModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfficeFacilities">
+      <EntityTypeMapping TypeName="YCModel.OfficeFacility">
+        <MappingFragment StoreEntitySet="OfficeFacilities">
+          <ScalarProperty Name="OfficeFacilityID" ColumnName="OfficeFacilityID" />
+          <ScalarProperty Name="OfficeFacilityName" ColumnName="OfficeFacilityName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offices">
+      <EntityTypeMapping TypeName="YCModel.Office">
+        <MappingFragment StoreEntitySet="Offices">
+          <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+          <ScalarProperty Name="OfficeTypeID" ColumnName="OfficeTypeID" />
+          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="CGST" ColumnName="CGST" />
+          <ScalarProperty Name="SGST" ColumnName="SGST" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfficeTypes">
+      <EntityTypeMapping TypeName="YCModel.OfficeType">
+        <MappingFragment StoreEntitySet="OfficeType">
+          <ScalarProperty Name="OfficeTypeID" ColumnName="OfficeTypeID" />
+          <ScalarProperty Name="OfficeTypeName" ColumnName="OfficeTypeName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Policies">
+      <EntityTypeMapping TypeName="YCModel.Policy">
+        <MappingFragment StoreEntitySet="Policies">
+          <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+          <ScalarProperty Name="PolicyName" ColumnName="PolicyName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="YCModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomAmenities">
+      <EntityTypeMapping TypeName="YCModel.RoomAmenity">
+        <MappingFragment StoreEntitySet="RoomAmenities">
+          <ScalarProperty Name="RoomAmenitiesID" ColumnName="RoomAmenitiesID" />
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="RoomAmenitiesName" ColumnName="RoomAmenitiesName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="YCModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="RoomTypeOptionID" ColumnName="RoomTypeOptionID" />
+          <ScalarProperty Name="MaxAdults" ColumnName="MaxAdults" />
+          <ScalarProperty Name="MaxChildren" ColumnName="MaxChildren" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomTypeOptions">
+      <EntityTypeMapping TypeName="YCModel.RoomTypeOption">
+        <MappingFragment StoreEntitySet="RoomTypeOptions">
+          <ScalarProperty Name="RoomTypeOptionID" ColumnName="RoomTypeOptionID" />
+          <ScalarProperty Name="OfficeFacilityID" ColumnName="OfficeFacilityID" />
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="IsRefundable" ColumnName="IsRefundable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomTypes">
+      <EntityTypeMapping TypeName="YCModel.RoomType">
+        <MappingFragment StoreEntitySet="RoomTypes">
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="RoomTypeName" ColumnName="RoomTypeName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="YCModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="Desccription" ColumnName="Desccription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="YCModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="YCModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersLogins">
+      <EntityTypeMapping TypeName="YCModel.UsersLogin">
+        <MappingFragment StoreEntitySet="UsersLogin">
+          <ScalarProperty Name="UsersLoginID" ColumnName="UsersLoginID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LastLoginDateTime" ColumnName="LastLoginDateTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="YCModel.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Verifications">
+      <EntityTypeMapping TypeName="YCModel.Verification">
+        <MappingFragment StoreEntitySet="Verification">
+          <ScalarProperty Name="EmailVerifyDate" ColumnName="EmailVerifyDate" />
+          <ScalarProperty Name="MobileVerifyDate" ColumnName="MobileVerifyDate" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="IsMobileVerified" ColumnName="IsMobileVerified" />
+          <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="VerificationId" ColumnName="VerificationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionLogs">
+      <EntityTypeMapping TypeName="YCModel.ActionLog">
+        <MappingFragment StoreEntitySet="ActionLog">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="ActionLogId" ColumnName="ActionLogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

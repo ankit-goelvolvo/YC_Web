@@ -1,0 +1,138 @@
+﻿@model YCWeb.Data.Office
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Office</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.OfficeName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OfficeName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CheckIn)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CheckIn)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CheckOut)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CheckOut)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CGST)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CGST)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SGST)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SGST)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Location.LocationName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Location.LocationName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User.FirstName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OfficeType.OfficeTypeName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OfficeType.OfficeTypeName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User1.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User1.FirstName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.OfficeID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

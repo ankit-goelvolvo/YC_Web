@@ -1,0 +1,42 @@
+﻿@model YCWeb.Data.Location
+
+@{
+    Layout = null;
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+    </dl>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Delete" class="btn btn-danger" onclick="DeleteConfirmed(@Model.LocationID);" />
+        </div>
+    </div>
+</div>
+<div>
+    <button onclick="OpenLocation();" class="BackList">Back to List</button>
+</div>

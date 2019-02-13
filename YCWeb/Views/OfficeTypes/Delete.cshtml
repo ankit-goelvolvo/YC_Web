@@ -1,0 +1,38 @@
+﻿@model YCWeb.Data.OfficeType
+
+@{
+                /**/
+
+                Layout = null;
+}
+
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Delete" class="btn btn-danger" onclick="DeleteConfirmedOfficeType(@Model.OfficeTypeID);" />
+        </div>
+    </div>
+</div>
+<div>
+    <button onclick="OpenOfficeType();" class="BackList">Back to List</button>
+</div>

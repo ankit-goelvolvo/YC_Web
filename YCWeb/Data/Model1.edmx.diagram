@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="45901f4fc8a44f6fbd054455ab354736" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="YCModel.Billing" Width="1.5" PointX="8.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.HotelBooking" Width="1.5" PointX="7.5" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.Location" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.OfficeFacility" Width="1.5" PointX="12.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.Office" Width="1.5" PointX="10.5" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.OfficeType" Width="1.5" PointX="5.25" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.Policy" Width="1.5" PointX="15.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.Role" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.RoomAmenity" Width="1.5" PointX="10.5" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.Room" Width="1.5" PointX="17.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.RoomTypeOption" Width="1.5" PointX="15" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.RoomType" Width="1.5" PointX="5.25" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.Status" Width="1.5" PointX="5.25" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.UserRole" Width="1.5" PointX="10.5" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.User" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.UsersLogin" Width="1.5" PointX="5.25" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YCModel.UserType" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <AssociationConnector Association="YCModel.FK__Billing__Created__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Billing__HotelBo__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Billing__Updated__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Billing__UserID__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__HotelBook__Booki__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__HotelBook__Creat__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__HotelBook__Offic__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__HotelBook__RoomI__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__HotelBook__Updat__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__HotelBook__UserI__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Location__Create__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Location__Update__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Offices__Locatio__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__OfficeFac__Creat__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__OfficeFac__Offic__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__OfficeFac__Updat__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__Offic__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Offices__Created__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Offices__OfficeT__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Offices__Updated__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Policies__Office__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__OfficeTyp__Creat__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__OfficeTyp__Updat__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Policies__Create__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Policies__Update__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Roles__CreatedBy__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Roles__UpdatedBy__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UserRoles__RoleI__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomAmeni__Creat__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomAmeni__RoomT__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomAmeni__Updat__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Rooms__CreatedBy__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Rooms__RoomTypeI__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Rooms__RoomTypeO__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Rooms__UpdatedBy__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__Creat__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__RoomT__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__Updat__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomTypes__Creat__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__RoomTypes__Updat__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Status__CreatedB__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Status__UpdatedB__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UserRoles__Creat__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UserRoles__Updat__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UserRoles__UserI__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Users__CreatedBy__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Users__UpdatedBy__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__Users__UserTypeI__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UsersLogi__Creat__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UsersLogi__Updat__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UsersLogi__UserI__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UserType__Create__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="YCModel.FK__UserType__Update__60A75C0F" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="YCModel.Verification" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="YCModel.FK_Verification_Users" />
+        <EntityTypeShape EntityType="YCModel.ActionLog" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="YCModel.FK_ActionLog_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
