@@ -498,6 +498,9 @@
     <Content Include="Images\shampoo.png" />
     <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\type.png" />
+    <Content Include="Scripts\AdminDashboard\Location.js" />
+    <Content Include="Scripts\AdminDashboard\Offices.js" />
+    <Content Include="Scripts\AdminDashboard\OfficeType.js" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
