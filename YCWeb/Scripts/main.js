@@ -385,13 +385,6 @@ var HideModalLoader = function () {
 
 
 
-var OpenOfficeFacility = function () {
-    alert("Location");
-};
-
-var OpenPolicies = function () {
-    alert("Location");
-};
 
 var OpenRoomType = function () {
     alert("Location");
