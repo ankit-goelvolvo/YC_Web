@@ -3,7 +3,10 @@
 @{
     Layout = null;
 }
-
+@{
+    var checkin = ((DateTime)Model.CheckIn).ToString("HH:mm") + " " + ((DateTime)Model.CheckIn).ToString("tt");
+    var checkout = ((DateTime)Model.CheckOut).ToString("HH:mm") + " " + ((DateTime)Model.CheckOut).ToString("tt");
+}
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
@@ -44,7 +47,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.CheckIn)
+                    @checkin
                 </dd>
             </dl>
         </div>
@@ -86,7 +89,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.CheckOut)
+                    @checkout
                 </dd>
             </dl>
         </div>

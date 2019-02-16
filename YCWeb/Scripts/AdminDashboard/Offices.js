@@ -109,7 +109,7 @@ var EditOffice = function (id) {
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);
             }
-            InitTimePicker();
+            //InitTimePicker();
             HideModalLoader();
         },
         error: function () {
@@ -237,3 +237,30 @@ var InitTimePicker = function () {
     });
 
 }
+
+var EditTimePicker = function (CheckIn, CheckOut) {
+    CheckIn = CheckIn.split(" ")[1].substring(0, 2);
+    CheckOut = CheckOut.split(" ")[1].substring(0, 2);
+    $('#txtCheckIn').timepicker({
+        timeFormat: 'h:mm p',
+        interval: 60,
+        minTime: '10',
+        maxTime: '6:00pm',
+        defaultTime: CheckIn,
+        startTime: '10:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+    });
+    $('#txtCheckOut').timepicker({
+        timeFormat: 'h:mm p',
+        interval: 60,
+        minTime: '10',
+        maxTime: '6:00pm',
+        defaultTime: CheckOut,
+        startTime: '10:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+    });
+};

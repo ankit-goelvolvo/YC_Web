@@ -3,7 +3,10 @@
 @{
     Layout = null;
 }
-
+@{
+    var checkin = "";
+    var checkout = "";
+}
 <p>
     <button onclick="CreateOffice();" class="btn btn-success">Create</button>
 </p>
@@ -44,6 +47,8 @@
 
     @foreach (var item in Model)
     {
+        checkin = ((DateTime)item.CheckIn).ToString("HH:mm") +" "+ ((DateTime)item.CheckIn).ToString("tt");
+        checkout = ((DateTime)item.CheckOut).ToString("HH:mm") + " " + ((DateTime)item.CheckOut).ToString("tt");
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.OfficeName)
@@ -58,10 +63,10 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CheckIn)
+                @checkin
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CheckOut)
+                @checkout
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CGST)

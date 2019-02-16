@@ -32,13 +32,18 @@ namespace YCWeb.Data
         [Required]
         public int LocationID { get; set; }
         public string Address { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
         public string Phone { get; set; }
+
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
         public Nullable<System.DateTime> CheckIn { get; set; }
         public Nullable<System.DateTime> CheckOut { get; set; }
         public Nullable<decimal> CGST { get; set; }
         public Nullable<decimal> SGST { get; set; }
         public Nullable<int> CreatedBy { get; set; }
+        [DataType(DataType.DateTime)]
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }

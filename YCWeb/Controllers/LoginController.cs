@@ -259,7 +259,7 @@ namespace YCWeb.Controllers
 
         public ActionResult Logout()
         {
-            Session["User"] = null;
+            Session.Abandon();
             return RedirectToAction("Index","Login");
         }
     }

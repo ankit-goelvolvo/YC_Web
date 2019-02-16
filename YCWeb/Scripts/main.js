@@ -425,3 +425,22 @@ var LogOut = function () {
     });
     return false;
 }
+
+var clicked = false;
+
+function bodyUnload() {
+    debugger;
+    $.ajax({
+        type: "GET",
+        url: "/Login/Logout",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            
+        },
+        error: function () {
+            
+        }
+    });
+    return false;
+}

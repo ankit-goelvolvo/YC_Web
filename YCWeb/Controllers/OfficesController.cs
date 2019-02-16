@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using YCWeb.Data;
 using YCWeb.Models;
+using YCWeb.Filter;
 
 namespace YCWeb.Controllers
 {
+    [CustomActionFilter]
     public class OfficesController : Controller
     {
         private YCEntities db = new YCEntities();
@@ -66,6 +66,18 @@ namespace YCWeb.Controllers
                     db.Offices.Add(office);
                     db.SaveChanges();
                     return Json(new { StatusCode = HttpStatusCode.Created, StatusMessage = "Office Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+                var errors = ModelState.Values.Where(x => x.Errors.Count > 0).ToList();
+                foreach (var item in errors)
+                {
+                    if (item.Errors[0].ErrorMessage.ToUpper().Contains("PHONE"))
+                    {
+                        return Json(new { StatusCode = HttpStatusCode.ExpectationFailed, StatusMessage = "Please enter valid phone number" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else if (item.Errors[0].ErrorMessage.ToUpper().Contains("EMAIL"))
+                    {
+                        return Json(new { StatusCode = HttpStatusCode.ExpectationFailed, StatusMessage = "Please enter correct Email" }, JsonRequestBehavior.AllowGet);
+                    }                    
                 }
                 ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", office.LocationID);
                 ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName", office.CreatedBy);
