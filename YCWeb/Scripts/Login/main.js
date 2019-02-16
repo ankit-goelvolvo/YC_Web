@@ -90,7 +90,7 @@
     }
     
     $('#modal-loader').removeClass('visible');
-
+    
 })(jQuery);
 
 var ShowModalLoader = function () {

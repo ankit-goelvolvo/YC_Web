@@ -11,7 +11,8 @@ namespace YCWeb.Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class OfficeFacility
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,12 +22,17 @@ namespace YCWeb.Data
         }
     
         public int OfficeFacilityID { get; set; }
+        [Required]
+        [Display(Name = "Office Facility Name")]
         public string OfficeFacilityName { get; set; }
         public string Description { get; set; }
+        [Required]
         public int OfficeID { get; set; }
         public Nullable<int> CreatedBy { get; set; }
+        [Display(Name = "Created Date")]
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
+        [Display(Name = "Updated Date")]
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
         public virtual User User { get; set; }

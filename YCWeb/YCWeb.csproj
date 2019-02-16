@@ -137,6 +137,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OfficeFacilitiesController.cs" />
     <Compile Include="Controllers\OfficesController.cs" />
     <Compile Include="Controllers\OfficeTypesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -499,6 +500,7 @@
     <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\type.png" />
     <Content Include="Scripts\AdminDashboard\Location.js" />
+    <Content Include="Scripts\AdminDashboard\OfficeFacility.js" />
     <Content Include="Scripts\AdminDashboard\Offices.js" />
     <Content Include="Scripts\AdminDashboard\OfficeType.js" />
     <Content Include="Scripts\aos.js" />
@@ -763,6 +765,11 @@
     <Content Include="Views\Offices\Details.cshtml" />
     <Content Include="Views\Offices\Edit.cshtml" />
     <Content Include="Views\Offices\Index.cshtml" />
+    <Content Include="Views\OfficeFacilities\Create.cshtml" />
+    <Content Include="Views\OfficeFacilities\Delete.cshtml" />
+    <Content Include="Views\OfficeFacilities\Details.cshtml" />
+    <Content Include="Views\OfficeFacilities\Edit.cshtml" />
+    <Content Include="Views\OfficeFacilities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
