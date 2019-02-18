@@ -383,17 +383,6 @@ var HideModalLoader = function () {
 
 
 
-
-
-
-var OpenRoomType = function () {
-    alert("Location");
-};
-
-var OpenRoomTypeOption = function () {
-    alert("Location");
-};
-
 var OpenRoomAmenities = function () {
     alert("Location");
 };

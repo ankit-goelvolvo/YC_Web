@@ -141,6 +141,8 @@
     <Compile Include="Controllers\OfficesController.cs" />
     <Compile Include="Controllers\OfficeTypesController.cs" />
     <Compile Include="Controllers\PoliciesController.cs" />
+    <Compile Include="Controllers\RoomTypeOptionsController.cs" />
+    <Compile Include="Controllers\RoomTypesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Data\ActionLog.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -505,6 +507,8 @@
     <Content Include="Scripts\AdminDashboard\Offices.js" />
     <Content Include="Scripts\AdminDashboard\OfficeType.js" />
     <Content Include="Scripts\AdminDashboard\Policy.js" />
+    <Content Include="Scripts\AdminDashboard\RoomType.js" />
+    <Content Include="Scripts\AdminDashboard\RoomTypeOptions.js" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -777,6 +781,16 @@
     <Content Include="Views\Policies\Details.cshtml" />
     <Content Include="Views\Policies\Edit.cshtml" />
     <Content Include="Views\Policies\Index.cshtml" />
+    <Content Include="Views\RoomTypes\Create.cshtml" />
+    <Content Include="Views\RoomTypes\Delete.cshtml" />
+    <Content Include="Views\RoomTypes\Details.cshtml" />
+    <Content Include="Views\RoomTypes\Edit.cshtml" />
+    <Content Include="Views\RoomTypes\Index.cshtml" />
+    <Content Include="Views\RoomTypeOptions\Create.cshtml" />
+    <Content Include="Views\RoomTypeOptions\Delete.cshtml" />
+    <Content Include="Views\RoomTypeOptions\Details.cshtml" />
+    <Content Include="Views\RoomTypeOptions\Edit.cshtml" />
+    <Content Include="Views\RoomTypeOptions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
