@@ -25,7 +25,7 @@ namespace YCWeb.Data
     
         public int RoomTypeID { get; set; }
         [Required]
-        [Display(Name ="Room Type Name")]
+        [Display(Name ="Room Type")]
         public string RoomTypeName { get; set; }
         public string Description { get; set; }
         [Display(Name = "Created By")]

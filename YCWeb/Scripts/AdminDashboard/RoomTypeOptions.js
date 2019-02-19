@@ -5,14 +5,14 @@
     };
     $.ajax({
         type: "GET",
-        url: "/RoomTypes/Index",
+        url: "/RoomTypeOptions/Index",
         contentType: "application/json; charset=utf-8",
         datatype: "json",
         success: function (data) {
             $('#myModalContent').empty();
             $('#myModalContent').html(data);
             $('#myModal').modal(options);
-            $('#headerText').text("Room Types");
+            $('#headerText').text("Room Types Options");
             $('#myModal').modal('show');
         },
         error: function () {
@@ -22,43 +22,52 @@
     return false;
 };
 
-var CreateRoomType = function () {
+var CreateRoomTypeOption = function () {
     var options = {
         "backdrop": "static",
         keyboard: true
     };
-    $.ajax({
-        type: "GET",
-        url: "/RoomTypes/Create",
-        contentType: "application/json; charset=utf-8",
-        datatype: "json",
-        success: function (data) {
-            $('#myModalContent').empty();
-            $('#myModalContent').html(data);
-            $('#myModal').modal(options);
-            $('#headerText').text("Room Type");
-            $('#myModal').modal('show');
-        },
-        error: function () {
-            alert("Content load failed.");
-        }
+    var url = "@Url.Action('Create','RoomTypeOptions')";
+    $.post("/RoomTypeOptions/Create", function (data) {
+        $('#myModalContent').empty();
+        $('#myModalContent').html(data);
+        $('#myModal').modal(options);
+        $('#headerText').text("Room Type Option");
+        $('#myModal').modal('show');
+        //$("#SomeDivToShowTheResult").html(res);
     });
+    //$.ajax({
+    //    type: "GET",
+    //    url: "/RoomTypeOptions/Create",
+    //    contentType: "application/json; charset=utf-8",
+    //    datatype: "json",
+    //    success: function (data) {
+    //        $('#myModalContent').empty();
+    //        $('#myModalContent').html(data);
+    //        $('#myModal').modal(options);
+    //        $('#headerText').text("Room Type Option");
+    //        $('#myModal').modal('show');
+    //    },
+    //    error: function () {
+    //        alert("Content load failed.");
+    //    }
+    //});
     return false;
 };
 
-var saveRoomType = function () {
+var saveRoomTypeOption = function () {
     ShowModalLoader();
-    var data = $('#formSaveRoomType').serialize();
+    var data = $('#formSaveRoomTypeOption').serialize();
     $.ajax({
         type: 'GET',
         cache: false,
-        url: "/RoomTypes/CreateRoomType",
+        url: "/RoomTypeOptions/CreateRoomTypeOption",
         data: data,
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (data) {
             if (data.StatusCode == 201) {
-                OpenRoomType();
+                OpenRoomTypeOption();
                 $('#footerText').text(data.StatusMessage);
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();
@@ -77,12 +86,12 @@ var saveRoomType = function () {
     return false;
 };
 
-var EditRoomType = function (id) {
+var EditRoomTypeOption = function (id) {
     ShowModalLoader();
     $.ajax({
         type: "GET",
         data: { 'id': id },
-        url: "/RoomTypes/Edit",
+        url: "/RoomTypeOptions/Edit",
         contentType: "application/json; charset=utf-8",
         datatype: "json",
         success: function (data) {
@@ -111,13 +120,13 @@ var updateRoomType = function () {
     $.ajax({
         type: 'GET',
         cache: false,
-        url: "/RoomTypes/UpdateRoomTypes",
+        url: "/RoomTypeOptions/UpdateRoomTypeOptions",
         data: data,
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (data) {
             if (data.StatusCode == 201) {
-                OpenRoomType();
+                OpenRoomTypeOption();
                 $('#footerText').text(data.StatusMessage);
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();
@@ -136,12 +145,12 @@ var updateRoomType = function () {
     return false;
 };
 
-var DeleteRoomType = function (id) {
+var DeleteRoomTypeOption = function (id) {
     ShowModalLoader();
     $.ajax({
         type: "GET",
         data: { 'id': id },
-        url: "/RoomTypes/Delete",
+        url: "/RoomTypeOptions/Delete",
         contentType: "application/json; charset=utf-8",
         datatype: "json",
         success: function (data) {
@@ -169,7 +178,7 @@ var DeleteConfirmedRoomType = function (officeTypeID) {
     $.ajax({
         type: "GET",
         data: { 'id': officeTypeID },
-        url: "/RoomTypes/DeleteConfirmed",
+        url: "/RoomTypeOptions/DeleteConfirmed",
         contentType: "application/json; charset=utf-8",
         datatype: "json",
         success: function (data) {
@@ -179,7 +188,7 @@ var DeleteConfirmedRoomType = function (officeTypeID) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                OpenRoomType();
+                OpenRoomTypeOption();
                 $('#footerText').text(data.StatusMessage);
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();

@@ -3,81 +3,84 @@
 @{
     Layout = null;
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+<p>
+    <button onclick="CreateRoomTypeOption();" class="btn btn-success">Create</button>
+</p>
+<div class="tbl-header">
     <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsRefundable)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OfficeFacility.OfficeFacilityName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RoomType.RoomTypeName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User1.FirstName)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsRefundable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OfficeFacility.OfficeFacilityName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomType.RoomTypeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User1.FirstName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RoomTypeOptionID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.RoomTypeOptionID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.RoomTypeOptionID })
-            </td>
-        </tr>
-    }
-    
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoomType.RoomTypeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OfficeFacility.OfficeFacilityName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsRefundable)
+                </th>
+                <th>
+                    Created By
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    Updated By
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
     </table>
-</body>
-</html>
+</div>
+<div class="tbl-content">
+    <table>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomType.RoomTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfficeFacility.OfficeFacilityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRefundable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User1.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                </td>
+                <td>
+                    <a href="#" onclick="EditRoomTypeOption(@item.RoomTypeOptionID)">Edit</a> |
+                    <a href="#" onclick="DeleteRoomTypeOption(@item.RoomTypeOptionID)">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    $(window).on("load resize ", function () {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({ 'padding-right': scrollWidth });
+    }).resize();
+</script>

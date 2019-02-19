@@ -23,7 +23,7 @@ namespace YCWeb.Data
     
         public int OfficeFacilityID { get; set; }
         [Required]
-        [Display(Name = "Office Facility Name")]
+        [Display(Name = "Office Facility")]
         public string OfficeFacilityName { get; set; }
         public string Description { get; set; }
         [Required]

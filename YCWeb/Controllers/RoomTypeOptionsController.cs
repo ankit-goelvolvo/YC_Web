@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using YCWeb.Data;
 using YCWeb.Filter;
+using YCWeb.Models;
 
 namespace YCWeb.Controllers
 {
@@ -20,7 +21,7 @@ namespace YCWeb.Controllers
         public ActionResult Index()
         {
             var roomTypeOptions = db.RoomTypeOptions.Include(r => r.OfficeFacility).Include(r => r.User).Include(r => r.RoomType).Include(r => r.User1);
-            return View(roomTypeOptions.ToList());
+            return PartialView(roomTypeOptions.ToList());
         }
 
         // GET: RoomTypeOptions/Details/5
@@ -39,34 +40,61 @@ namespace YCWeb.Controllers
         }
 
         // GET: RoomTypeOptions/Create
-        public ActionResult Create()
+        public PartialViewResult Create()
         {
-            ViewBag.OfficeFacilityID = new SelectList(db.OfficeFacilities, "OfficeFacilityID", "OfficeFacilityName");
+            var vm = new RoomTypeOption();
+            vm.Facilities= db.OfficeFacilities
+            .Select(x => new SelectListItem
+            {
+                Value = x.OfficeFacilityID.ToString(),
+                Text = x.OfficeFacilityName,
+            })
+            .ToList();
+            //ViewBag.OfficeFacilityID = new SelectList(db.OfficeFacilities, "OfficeFacilityID", "OfficeFacilityName");
+            //ViewBag.OfficeFacility = db.OfficeFacilities
+            //.Select(x => new SelectListItem
+            //{
+            //    Value = x.OfficeFacilityID.ToString(),
+            //    Text = x.OfficeFacilityName,
+            //})
+            //.ToList();
             ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName");
             ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName");
             ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName");
-            return View();
+            return PartialView(vm);
         }
 
         // POST: RoomTypeOptions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RoomTypeOptionID,OfficeFacilityID,RoomTypeID,Price,IsRefundable,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate")] RoomTypeOption roomTypeOption)
+        public JsonResult CreateRoomTypeOption(RoomTypeOption roomTypeOption)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.RoomTypeOptions.Add(roomTypeOption);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    int totalExistRows = db.RoomTypeOptions.Where(x => x.RoomTypeID== roomTypeOption.RoomTypeID && x.OfficeFacilityID== roomTypeOption.OfficeFacilityID).Count();
+                    if (totalExistRows > 0)
+                    {
+                        return Json(new { StatusCode = HttpStatusCode.Found, StatusMessage = "Room Type Option already present" }, JsonRequestBehavior.AllowGet);
+                    }
+                    roomTypeOption.CreatedBy = (Session["User"] as SessionEntity).UserID;
+                    roomTypeOption.CreatedDate = DateTime.Now;
+                    db.RoomTypeOptions.Add(roomTypeOption);
+                    db.SaveChanges();
+                    return Json(new { StatusCode = HttpStatusCode.Created, StatusMessage = "Room Type Option Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+                ViewBag.OfficeFacilityID = new SelectList(db.OfficeFacilities, "OfficeFacilityID", "OfficeFacilityName", roomTypeOption.OfficeFacilityID);
+                ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName", roomTypeOption.CreatedBy);
+                ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName", roomTypeOption.RoomTypeID);
+                ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName", roomTypeOption.UpdatedBy);
+            }
+            catch (Exception e)
+            {
+                return Json(new { StatusCode = HttpStatusCode.MethodNotAllowed, StatusMessage = e.Message }, JsonRequestBehavior.AllowGet);
             }
 
-            ViewBag.OfficeFacilityID = new SelectList(db.OfficeFacilities, "OfficeFacilityID", "OfficeFacilityName", roomTypeOption.OfficeFacilityID);
-            ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName", roomTypeOption.CreatedBy);
-            ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName", roomTypeOption.RoomTypeID);
-            ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName", roomTypeOption.UpdatedBy);
-            return View(roomTypeOption);
+            return Json(new { StatusCode = HttpStatusCode.MethodNotAllowed, StatusMessage = "Please enter required fields" }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: RoomTypeOptions/Edit/5
