@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using YCWeb.Data;
+using YCWeb.Filter;
 
 namespace YCWeb.Controllers
 {
+    [CustomActionFilter]
     public class RoomTypeOptionsController : Controller
     {
         private YCEntities db = new YCEntities();
