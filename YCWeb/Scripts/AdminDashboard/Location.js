@@ -1,4 +1,5 @@
 ﻿var OpenLocation = function () {
+    $('.modal-dialog').css('max-width', '65%');
     ShowLoader();
     var options = {
         "backdrop": "static",
@@ -25,6 +26,7 @@
 };
 
 var CreateLocation = function () {
+    $('.modal-dialog').css('max-width', '50%');
     ShowModalLoader();
     var options = {
         "backdrop": "static",
@@ -87,7 +89,37 @@ var saveLocation = function () {
     return false;
 };
 
+var DetailLocation = function (id) {
+    ShowModalLoader();
+    $.ajax({
+        type: "GET",
+        data: { 'id': id },
+        url: "/Locations/Details",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            if (data.StatusCode == 204) {
+                $('#footerText').text(data.StatusMessage);
+                $('#footerText').show();
+                $('#footerText').delay(5000).fadeOut();
+            }
+            else {
+                $('.modal-dialog').css('max-width', '50%');
+                $('#headerText').text("Details");
+                $('#myModalContent').empty();
+                $('#myModalContent').html(data);
+            }
+            HideModalLoader();
+        },
+        error: function () {
+            alert("Content load failed.");
+        }
+    });
+    return false;
+};
+
 var EditLocation = function (id) {
+    $('.modal-dialog').css('max-width', '50%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -153,6 +185,7 @@ var updateLocation = function () {
 };
 
 var DeleteLocation = function (id) {
+    $('.modal-dialog').css('max-width', '50%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -181,6 +214,7 @@ var DeleteLocation = function (id) {
 };
 
 var DeleteConfirmed = function (locationID) {
+    $('.modal-dialog').css('max-width', '90%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

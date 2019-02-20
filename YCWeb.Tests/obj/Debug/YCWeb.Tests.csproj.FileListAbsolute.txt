@@ -35,3 +35,40 @@
 \\VCN.DS.VOLVO.NET\CLI-HM\HM0914\a291217\My Documents\Perosnal\YC\YCWeb.Tests\obj\Debug\YCWeb.Tests.csproj.CopyComplete
 \\VCN.DS.VOLVO.NET\CLI-HM\HM0914\a291217\My Documents\Perosnal\YC\YCWeb.Tests\obj\Debug\YCWeb.Tests.dll
 \\VCN.DS.VOLVO.NET\CLI-HM\HM0914\a291217\My Documents\Perosnal\YC\YCWeb.Tests\obj\Debug\YCWeb.Tests.pdb
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\YCWeb.Tests.dll.config
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\YCWeb.Tests.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\YCWeb.Tests.pdb
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\YCWeb.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\EntityFramework.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\YCWeb.pdb
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\YCWeb.dll.config
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\bin\Debug\EntityFramework.xml
+C:\Users\A291217\Documents\YC\YCWeb.Tests\obj\Debug\YCWeb.Tests.csprojAssemblyReference.cache
+C:\Users\A291217\Documents\YC\YCWeb.Tests\obj\Debug\YCWeb.Tests.csproj.CoreCompileInputs.cache
+C:\Users\A291217\Documents\YC\YCWeb.Tests\obj\Debug\YCWeb.Tests.csproj.CopyComplete
+C:\Users\A291217\Documents\YC\YCWeb.Tests\obj\Debug\YCWeb.Tests.dll
+C:\Users\A291217\Documents\YC\YCWeb.Tests\obj\Debug\YCWeb.Tests.pdb

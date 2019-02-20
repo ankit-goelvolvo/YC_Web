@@ -26,16 +26,12 @@ namespace YCWeb.Controllers
         // GET: Locations/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Location location = db.Locations.Find(id);
             if (location == null)
             {
-                return HttpNotFound();
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Location not found" }, JsonRequestBehavior.AllowGet);
             }
-            return View(location);
+            return PartialView(location);
         }
 
         // GET: Locations/Create

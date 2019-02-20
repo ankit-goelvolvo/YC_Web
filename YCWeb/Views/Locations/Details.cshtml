@@ -4,79 +4,87 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>Location</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.LocationName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LocationName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Latitude)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Latitude)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Longitude)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Longitude)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CreatedDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.UpdatedDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.User.FirstName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.User.FirstName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.User1.FirstName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.User1.FirstName)
-            </dd>
-    
-        </dl>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.LocationName)
+                </label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(model => model.LocationName)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Latitude)
+                </label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(model => model.Latitude)
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.LocationID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Longitude)
+                </label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(model => model.Longitude)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Created By
+                </label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(model => model.User.FirstName)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Created Date
+                </label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Updated by
+                </label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(model => model.User1.FirstName)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Updated Date
+                </label>
+                <div class="col-sm-10">
+                    @Html.DisplayFor(model => model.UpdatedDate)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a href="#" onclick="EditLocation(@Model.LocationID)">Edit</a> |
+    <button onclick="OpenLocation();" class="BackList">Back to List</button>
+</div>
