@@ -26,16 +26,12 @@ namespace YCWeb.Controllers
         // GET: OfficeTypes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             OfficeType officeType = db.OfficeTypes.Find(id);
             if (officeType == null)
             {
-                return HttpNotFound();
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Office Type not found" }, JsonRequestBehavior.AllowGet);
             }
-            return View(officeType);
+            return PartialView(officeType);
         }
 
         // GET: OfficeTypes/Create

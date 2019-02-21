@@ -90,6 +90,7 @@ var saveLocation = function () {
 };
 
 var DetailLocation = function (id) {
+    $('.modal-dialog').css('max-width', '50%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -103,8 +104,7 @@ var DetailLocation = function (id) {
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();
             }
-            else {
-                $('.modal-dialog').css('max-width', '50%');
+            else {               
                 $('#headerText').text("Details");
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);

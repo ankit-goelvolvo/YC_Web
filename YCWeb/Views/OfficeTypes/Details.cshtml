@@ -1,76 +1,78 @@
 ﻿@model YCWeb.Data.OfficeType
 
 @{
-                /**/
-
-                Layout = null;
+    Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>OfficeType</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.OfficeTypeName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.OfficeTypeName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.CreatedDate)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.UpdatedDate)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.User.FirstName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.User.FirstName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.User1.FirstName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.User1.FirstName)
-            </dd>
-
-        </dl>
+<div class="container">
+    <div class="row details">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.OfficeTypeName)
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.OfficeTypeName)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Description)
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.Description)
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.OfficeTypeID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+    <div class="row details">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Created By
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.User.FirstName)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Created Date
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row details">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Updated by
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.User1.FirstName)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Updated Date
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.UpdatedDate)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a href="#" onclick="EditOfficeType(@Model.OfficeTypeID)">Edit</a> |
+    <button onclick="OpenOfficeType();" class="BackList">Back to List</button>
+</div>

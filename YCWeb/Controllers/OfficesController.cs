@@ -25,16 +25,12 @@ namespace YCWeb.Controllers
         // GET: Offices/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Office office = db.Offices.Find(id);
             if (office == null)
             {
-                return HttpNotFound();
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Office not found" }, JsonRequestBehavior.AllowGet);
             }
-            return View(office);
+            return PartialView(office);
         }
 
         // GET: Offices/Create

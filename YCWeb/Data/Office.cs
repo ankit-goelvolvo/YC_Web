@@ -38,7 +38,9 @@ namespace YCWeb.Data
 
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
+        [Display(Name = "Check In")]
         public Nullable<System.DateTime> CheckIn { get; set; }
+        [Display(Name = "Check Out")]
         public Nullable<System.DateTime> CheckOut { get; set; }
         public Nullable<decimal> CGST { get; set; }
         public Nullable<decimal> SGST { get; set; }

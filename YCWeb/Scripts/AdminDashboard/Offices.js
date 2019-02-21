@@ -1,6 +1,5 @@
-﻿
-
-var OpenOffices = function () {
+﻿var OpenOffices = function () {
+    $('.modal-dialog').css('max-width', '65%');
     ShowModalLoader();
     var options = {
         "backdrop": "static",
@@ -27,7 +26,37 @@ var OpenOffices = function () {
     return false;
 };
 
+var DetailOffice = function (id) {
+    $('.modal-dialog').css('max-width', '60%');
+    ShowModalLoader();
+    $.ajax({
+        type: "GET",
+        data: { 'id': id },
+        url: "/Offices/Details",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            if (data.StatusCode == 204) {
+                $('#footerText').text(data.StatusMessage);
+                $('#footerText').show();
+                $('#footerText').delay(5000).fadeOut();
+            }
+            else {
+                $('#headerText').text("Details");
+                $('#myModalContent').empty();
+                $('#myModalContent').html(data);
+            }
+            HideModalLoader();
+        },
+        error: function () {
+            alert("Content load failed.");
+        }
+    });
+    return false;
+};
+
 var CreateOffice = function () {
+    $('.modal-dialog').css('max-width', '60%');
     ShowModalLoader();
     var options = {
         "backdrop": "static",
@@ -91,6 +120,7 @@ var saveOffice = function () {
 };
 
 var EditOffice = function (id) {
+    $('.modal-dialog').css('max-width', '60%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -154,6 +184,7 @@ var updateOffice = function () {
 };
 
 var DeleteOffice = function (id) {
+    $('.modal-dialog').css('max-width', '50%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

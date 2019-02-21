@@ -1,4 +1,5 @@
 ﻿var OpenOfficeType = function () {
+    $('.modal-dialog').css('max-width', '65%');
     var options = {
         "backdrop": "static",
         keyboard: true
@@ -23,6 +24,7 @@
 };
 
 var CreateOfficeType = function () {
+    $('.modal-dialog').css('max-width', '40%');
     var options = {
         "backdrop": "static",
         keyboard: true
@@ -77,7 +79,37 @@ var saveOfficeType = function () {
     return false;
 };
 
+var DetailOfficeType = function (id) {
+    ShowModalLoader();
+    $.ajax({
+        type: "GET",
+        data: { 'id': id },
+        url: "/OfficeTypes/Details",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            if (data.StatusCode == 204) {
+                $('#footerText').text(data.StatusMessage);
+                $('#footerText').show();
+                $('#footerText').delay(5000).fadeOut();
+            }
+            else {
+                $('.modal-dialog').css('max-width', '50%');
+                $('#headerText').text("Details");
+                $('#myModalContent').empty();
+                $('#myModalContent').html(data);
+            }
+            HideModalLoader();
+        },
+        error: function () {
+            alert("Content load failed.");
+        }
+    });
+    return false;
+};
+
 var EditOfficeType = function (id) {
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -137,6 +169,7 @@ var updateOfficeType = function () {
 };
 
 var DeleteOfficeType = function (id) {
+    $('.modal-dialog').css('max-width', '50%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

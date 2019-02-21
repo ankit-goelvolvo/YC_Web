@@ -5,13 +5,13 @@
 }
 
 <div class="container">
-    <div class="row">
+    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.LocationName)
                 </label>
-                <div class="col-sm-10">
+                <div>
                     @Html.DisplayFor(model => model.LocationName)
                 </div>
             </div>
@@ -21,19 +21,19 @@
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.Latitude)
                 </label>
-                <div class="col-sm-10">
+                <div>
                     @Html.DisplayFor(model => model.Latitude)
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.Longitude)
                 </label>
-                <div class="col-sm-10">
+                <div>
                     @Html.DisplayFor(model => model.Longitude)
                 </div>
             </div>
@@ -43,19 +43,19 @@
                 <label class="font-weight-bold">
                     Created By
                 </label>
-                <div class="col-sm-10">
+                <div>
                     @Html.DisplayFor(model => model.User.FirstName)
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     Created Date
                 </label>
-                <div class="col-sm-10">
+                <div>
                     @Html.DisplayFor(model => model.CreatedDate)
                 </div>
             </div>
@@ -65,19 +65,19 @@
                 <label class="font-weight-bold">
                     Updated by
                 </label>
-                <div class="col-sm-10">
+                <div>
                     @Html.DisplayFor(model => model.User1.FirstName)
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     Updated Date
                 </label>
-                <div class="col-sm-10">
+                <div>
                     @Html.DisplayFor(model => model.UpdatedDate)
                 </div>
             </div>

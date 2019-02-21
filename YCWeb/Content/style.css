@@ -5861,6 +5861,7 @@ button.close {
     width: auto;
     margin: 0.5rem;
     pointer-events: none;
+    margin-left: 5rem;
 }
 
 .modal.fade .modal-dialog {
@@ -13144,4 +13145,8 @@ td {
     font-weight: 300;
     font-size: 12px;
     border-bottom: solid 1px #dee2e6;
+}
+
+.details {
+    border-bottom: dashed 1px #dee2e6;
 }

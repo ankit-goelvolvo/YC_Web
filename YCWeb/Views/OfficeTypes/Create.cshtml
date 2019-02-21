@@ -12,14 +12,14 @@
     <div class="form-horizontal">
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OfficeTypeName, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            @Html.LabelFor(model => model.OfficeTypeName, htmlAttributes: new { @class = "control-label col-md-10 required" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OfficeTypeName, new { htmlAttributes = new { @class = "form-control", id = "txtOfficeTypeName" } })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-10 required" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", id = "txtdescription" } })
             </div>
