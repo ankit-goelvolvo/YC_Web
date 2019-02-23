@@ -373,6 +373,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facilitiy.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\SessionEntity.cs" />
     <Compile Include="Models\Status.cs" />

@@ -185,7 +185,7 @@ var updateLocation = function () {
 };
 
 var DeleteLocation = function (id) {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

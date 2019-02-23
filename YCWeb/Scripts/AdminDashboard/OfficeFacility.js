@@ -1,6 +1,5 @@
-﻿
-
-var OpenOfficeFacility = function () {
+﻿var OpenOfficeFacility = function () {
+    $('.modal-dialog').css('max-width', '55%');
     ShowModalLoader();
     var options = {
         "backdrop": "static",
@@ -28,6 +27,7 @@ var OpenOfficeFacility = function () {
 };
 
 var CreateOfficeFacility = function () {
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     var options = {
         "backdrop": "static",
@@ -89,7 +89,37 @@ var saveOfficeFacility = function () {
     return false;
 };
 
+var DetailOfficeFacility = function (id) {
+    $('.modal-dialog').css('max-width', '50%');
+    ShowModalLoader();
+    $.ajax({
+        type: "GET",
+        data: { 'id': id },
+        url: "/OfficeFacilities/Details",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            if (data.StatusCode == 204) {
+                $('#footerText').text(data.StatusMessage);
+                $('#footerText').show();
+                $('#footerText').delay(5000).fadeOut();
+            }
+            else {
+                $('#headerText').text("Details");
+                $('#myModalContent').empty();
+                $('#myModalContent').html(data);
+            }
+            HideModalLoader();
+        },
+        error: function () {
+            alert("Content load failed.");
+        }
+    });
+    return false;
+};
+
 var EditOfficeFacility = function (id) {
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -151,6 +181,7 @@ var updateOfficeFacility = function () {
 };
 
 var DeleteOfficeFacility = function (id) {
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

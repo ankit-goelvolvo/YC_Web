@@ -169,7 +169,7 @@ var updateOfficeType = function () {
 };
 
 var DeleteOfficeType = function (id) {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

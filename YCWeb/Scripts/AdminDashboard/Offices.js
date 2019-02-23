@@ -184,7 +184,7 @@ var updateOffice = function () {
 };
 
 var DeleteOffice = function (id) {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

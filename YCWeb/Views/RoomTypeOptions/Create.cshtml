@@ -7,6 +7,14 @@
     #OfficeFacility {
         width: 100% !important;
     }
+    #IsRefundable {
+        width: 100% !important;
+        height: 40px;
+    }
+    #RoomTypeID {
+        width: 100% !important;
+        height: 40px;
+    }
 </style>
 @using (Html.BeginForm(null, null, FormMethod.Get, new { id = "formSaveRoomTypeOption" }))
 {
@@ -14,31 +22,31 @@
 
     <div class="form-horizontal">
         <div class="form-group">
-            @Html.LabelFor(model => model.RoomTypeID, "Room Type", htmlAttributes: new { @class = "control-label col-md-2 required " })
+            @Html.LabelFor(model => model.RoomTypeID, "Room Type", htmlAttributes: new { @class = "control-label col-md-10 required " })
             <div class="col-md-10">
-                @Html.DropDownList("RoomTypeID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("RoomTypeID", null, htmlAttributes: new { id = "RoomTypeID" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OfficeFacilityID, "Office Facility", htmlAttributes: new { @class = "control-label col-md-2 required" })
+            @Html.LabelFor(model => model.OfficeFacilityID, "Office Facility", htmlAttributes: new { @class = "control-label col-md-10 required" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.SelectedValues, Model.Facilities, new { id = "OfficeFacility" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-10 required" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IsRefundable, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IsRefundable, htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.IsRefundable)
+                    @Html.EditorFor(model => model.IsRefundable, new { htmlAttributes = new { id = "IsRefundable" } })
                 </div>
             </div>
         </div>

@@ -1,90 +1,99 @@
-﻿@model YCWeb.Data.RoomTypeOption
+﻿@model YCWeb.Models.Facilitiy
 
 @{
     Layout = null;
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>RoomTypeOption</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.IsRefundable)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.IsRefundable)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CreatedDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.UpdatedDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.OfficeFacility.OfficeFacilityName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.OfficeFacility.OfficeFacilityName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.User.FirstName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.User.FirstName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.RoomType.RoomTypeName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.RoomType.RoomTypeName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.User1.FirstName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.User1.FirstName)
-            </dd>
-    
-        </dl>
+<div class="container">
+    <div class="row details">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.RoomtypeName)
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.RoomtypeName)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.FacilityName)
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.FacilityName)
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.RoomTypeOptionID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+    <div class="row details">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Price)
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.Price)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    @Html.DisplayNameFor(model => model.IsRefundable)
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.IsRefundable)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row details">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Created By
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.CreatedBy)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Created Date
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row details">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Updated by
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.UpdatedBy)
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Updated Date
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.UpdatedDate)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a href="#" onclick="EditRoomTypeOption(@Model.RoomtypeId)">Edit</a> |
+    <button onclick="OpenRoomTypeOption();" class="BackList">Back to List</button>
+</div>

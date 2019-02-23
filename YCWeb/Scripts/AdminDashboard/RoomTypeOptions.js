@@ -1,4 +1,5 @@
 ﻿var OpenRoomTypeOption = function () {
+    $('.modal-dialog').css('max-width', '65%');
     var options = {
         "backdrop": "static",
         keyboard: true
@@ -23,6 +24,7 @@
 };
 
 var CreateRoomTypeOption = function () {
+    $('.modal-dialog').css('max-width', '50%');
     var options = {
         "backdrop": "static",
         keyboard: true
@@ -86,7 +88,37 @@ var saveRoomTypeOption = function () {
     return false;
 };
 
+var DetailRoomTypeOptions = function (id) {
+    $('.modal-dialog').css('max-width', '50%');
+    ShowModalLoader();
+    $.ajax({
+        type: "GET",
+        data: { 'id': id },
+        url: "/RoomTypeOptions/Details",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            if (data.StatusCode == 204) {
+                $('#footerText').text(data.StatusMessage);
+                $('#footerText').show();
+                $('#footerText').delay(5000).fadeOut();
+            }
+            else {
+                $('#headerText').text("Details");
+                $('#myModalContent').empty();
+                $('#myModalContent').html(data);
+            }
+            HideModalLoader();
+        },
+        error: function () {
+            alert("Content load failed.");
+        }
+    });
+    return false;
+};
+
 var EditRoomTypeOption = function (id) {
+    $('.modal-dialog').css('max-width', '50%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -146,6 +178,7 @@ var updateRoomType = function () {
 };
 
 var DeleteRoomTypeOption = function (id) {
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

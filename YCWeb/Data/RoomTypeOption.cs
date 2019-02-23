@@ -48,6 +48,9 @@ namespace YCWeb.Data
         public virtual RoomType RoomType { get; set; }
         public virtual User User1 { get; set; }
         public List<SelectListItem> Facilities { set; get; }
+        
         public string[] SelectedValues { get; set; }
+
+        public string SelectedFacility { get; set; }
     }
 }
