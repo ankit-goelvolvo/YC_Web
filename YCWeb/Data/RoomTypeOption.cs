@@ -52,5 +52,8 @@ namespace YCWeb.Data
         public string[] SelectedValues { get; set; }
 
         public string SelectedFacility { get; set; }
+
+        public string CreateBy { get; set; }
+        public string UpdateBy { get; set; }
     }
 }

@@ -4,16 +4,17 @@
         "backdrop": "static",
         keyboard: true
     };
+    $('#myModalContent').empty();
     $.ajax({
         type: "GET",
         url: "/RoomTypeOptions/Index",
         contentType: "application/json; charset=utf-8",
         datatype: "json",
         success: function (data) {
-            $('#myModalContent').empty();
+            
             $('#myModalContent').html(data);
             $('#myModal').modal(options);
-            $('#headerText').text("Room Types Options");
+            $('#headerText').text("Room Type Options");
             $('#myModal').modal('show');
         },
         error: function () {
@@ -24,14 +25,15 @@
 };
 
 var CreateRoomTypeOption = function () {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '45%');
     var options = {
         "backdrop": "static",
         keyboard: true
     };
     var url = "@Url.Action('Create','RoomTypeOptions')";
+    $('#myModalContent').empty();
     $.post("/RoomTypeOptions/Create", function (data) {
-        $('#myModalContent').empty();
+        
         $('#myModalContent').html(data);
         $('#myModal').modal(options);
         $('#headerText').text("Room Type Option");
@@ -89,7 +91,7 @@ var saveRoomTypeOption = function () {
 };
 
 var DetailRoomTypeOptions = function (id) {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '45%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -118,7 +120,7 @@ var DetailRoomTypeOptions = function (id) {
 };
 
 var EditRoomTypeOption = function (id) {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '45%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -146,9 +148,9 @@ var EditRoomTypeOption = function (id) {
     return false;
 };
 
-var updateRoomType = function () {
+var updateRoomTypeOption = function () {
     ShowModalLoader();
-    var data = $('#formEditRoomType').serialize();
+    var data = $('#formEditRoomTypeOption').serialize();
     $.ajax({
         type: 'GET',
         cache: false,

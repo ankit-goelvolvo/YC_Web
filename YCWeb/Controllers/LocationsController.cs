@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using YCWeb.Data;
 using YCWeb.Filter;
+using YCWeb.Models;
 
 namespace YCWeb.Controllers
 {
@@ -57,7 +58,7 @@ namespace YCWeb.Controllers
                     {
                         return Json(new { StatusCode = HttpStatusCode.Found, StatusMessage = "Location already present" }, JsonRequestBehavior.AllowGet);
                     }
-                    location.CreatedBy = 1;
+                    location.CreatedBy = (Session["User"] as SessionEntity).UserID;
                     location.CreatedDate = DateTime.Now;
                     db.Locations.Add(location);
                     db.SaveChanges();
@@ -95,7 +96,7 @@ namespace YCWeb.Controllers
                 if (ModelState.IsValid)
                 {
                     db.Entry(location).State = EntityState.Modified;
-                    location.UpdatedBy = 1;
+                    location.UpdatedBy = (Session["User"] as SessionEntity).UserID;
                     location.UpdatedDate = DateTime.Now;
                     db.SaveChanges();
                     return Json(new { StatusCode = HttpStatusCode.Created, StatusMessage = "Location Updated Successfully" }, JsonRequestBehavior.AllowGet);
