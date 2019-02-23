@@ -208,7 +208,7 @@ var DeleteRoomTypeOption = function (id) {
     return false;
 };
 
-var DeleteConfirmedRoomType = function (officeTypeID) {
+var DeleteConfirmedRoomTypeOption = function (RoomtypeId,officeTypeID) {
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -223,7 +223,7 @@ var DeleteConfirmedRoomType = function (officeTypeID) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                OpenRoomTypeOption();
+                DeleteRoomTypeOption(RoomtypeId);
                 $('#footerText').text(data.StatusMessage);
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();

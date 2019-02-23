@@ -315,27 +315,42 @@ namespace YCWeb.Controllers
         // GET: RoomTypeOptions/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            var RoomType = db.RoomTypeOptions.Where(x => x.RoomTypeID == id).ToList();
+            if (RoomType == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Office falility not found" }, JsonRequestBehavior.AllowGet);
             }
-            RoomTypeOption roomTypeOption = db.RoomTypeOptions.Find(id);
-            if (roomTypeOption == null)
+            var roomTypeOptions = db.RoomTypeOptions.Where(x => x.RoomTypeID == id).Include(r => r.OfficeFacility).Include(r => r.RoomType);
+            List<Facilitiy> f = new List<Facilitiy>();
+            foreach (var item in roomTypeOptions)
             {
-                return HttpNotFound();
+                Facilitiy fac = new Facilitiy
+                {
+                    RoomtypeId=item.RoomTypeID,
+                    RoomTypeOptionID = item.RoomTypeOptionID,
+                    RoomtypeName = item.RoomType.RoomTypeName,
+                    FacilityName = item.OfficeFacility.OfficeFacilityName
+                };
+                f.Add(fac);
             }
-            return View(roomTypeOption);
+            return PartialView(f);
         }
 
         // POST: RoomTypeOptions/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        
+        public JsonResult DeleteConfirmed(int id)
         {
-            RoomTypeOption roomTypeOption = db.RoomTypeOptions.Find(id);
-            db.RoomTypeOptions.Remove(roomTypeOption);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                RoomTypeOption roomTypeOption = db.RoomTypeOptions.Find(id);
+                db.RoomTypeOptions.Remove(roomTypeOption);
+                db.SaveChanges();
+                return Json(new { StatusCode = HttpStatusCode.Created, StatusMessage = "Office falility Deleted Successfully" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { StatusCode = HttpStatusCode.MethodNotAllowed, StatusMessage = e.Message }, JsonRequestBehavior.AllowGet);
+            }
         }
 
         protected override void Dispose(bool disposing)
