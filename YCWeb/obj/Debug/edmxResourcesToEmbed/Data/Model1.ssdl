@@ -164,10 +164,22 @@
       <PropertyRef Name="RoomTypeOptionID" />
     </Key>
     <Property Name="RoomTypeOptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="OfficeFacilityID" Type="int" Nullable="false" />
     <Property Name="RoomTypeID" Type="int" Nullable="false" />
     <Property Name="Price" Type="money" Nullable="false" />
     <Property Name="IsRefundable" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="RoomTypeOptionsFacility">
+    <Key>
+      <PropertyRef Name="RoomTypeOptionsFacilityID" />
+    </Key>
+    <Property Name="RoomTypeOptionsFacilityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomTypeOptionID" Type="int" Nullable="false" />
+    <Property Name="OfficeFacilityID" Type="int" Nullable="false" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="UpdatedBy" Type="int" />
@@ -664,7 +676,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RoomTypeO__Creat__4E88ABD4">
+  <Association Name="FK__RoomTypeO__Creat__0D7A0286">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="RoomTypeOptionsFacility" Type="Self.RoomTypeOptionsFacility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="RoomTypeOptionsFacility">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoomTypeO__Creat__151B244E">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="RoomTypeOptions" Type="Self.RoomTypeOptions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -676,19 +700,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RoomTypeO__Offic__4F7CD00D">
+  <Association Name="FK__RoomTypeO__Offic__0E6E26BF">
     <End Role="OfficeFacilities" Type="Self.OfficeFacilities" Multiplicity="1" />
-    <End Role="RoomTypeOptions" Type="Self.RoomTypeOptions" Multiplicity="*" />
+    <End Role="RoomTypeOptionsFacility" Type="Self.RoomTypeOptionsFacility" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OfficeFacilities">
         <PropertyRef Name="OfficeFacilityID" />
       </Principal>
-      <Dependent Role="RoomTypeOptions">
+      <Dependent Role="RoomTypeOptionsFacility">
         <PropertyRef Name="OfficeFacilityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RoomTypeO__RoomT__5070F446">
+  <Association Name="FK__RoomTypeO__RoomT__0F624AF8">
+    <End Role="RoomTypeOptions" Type="Self.RoomTypeOptions" Multiplicity="1" />
+    <End Role="RoomTypeOptionsFacility" Type="Self.RoomTypeOptionsFacility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomTypeOptions">
+        <PropertyRef Name="RoomTypeOptionID" />
+      </Principal>
+      <Dependent Role="RoomTypeOptionsFacility">
+        <PropertyRef Name="RoomTypeOptionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoomTypeO__RoomT__160F4887">
     <End Role="RoomTypes" Type="Self.RoomTypes" Multiplicity="1" />
     <End Role="RoomTypeOptions" Type="Self.RoomTypeOptions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -700,7 +736,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RoomTypeO__Updat__5165187F">
+  <Association Name="FK__RoomTypeO__Updat__10566F31">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="RoomTypeOptionsFacility" Type="Self.RoomTypeOptionsFacility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="RoomTypeOptionsFacility">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoomTypeO__Updat__17036CC0">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="RoomTypeOptions" Type="Self.RoomTypeOptions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -941,6 +989,7 @@
     <EntitySet Name="RoomAmenities" EntityType="Self.RoomAmenities" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoomTypeOptions" EntityType="Self.RoomTypeOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomTypeOptionsFacility" EntityType="Self.RoomTypeOptionsFacility" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoomTypes" EntityType="Self.RoomTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
@@ -1080,19 +1129,31 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Rooms" EntitySet="Rooms" />
     </AssociationSet>
-    <AssociationSet Name="FK__RoomTypeO__Creat__4E88ABD4" Association="Self.FK__RoomTypeO__Creat__4E88ABD4">
+    <AssociationSet Name="FK__RoomTypeO__Creat__0D7A0286" Association="Self.FK__RoomTypeO__Creat__0D7A0286">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RoomTypeOptionsFacility" EntitySet="RoomTypeOptionsFacility" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoomTypeO__Creat__151B244E" Association="Self.FK__RoomTypeO__Creat__151B244E">
       <End Role="Users" EntitySet="Users" />
       <End Role="RoomTypeOptions" EntitySet="RoomTypeOptions" />
     </AssociationSet>
-    <AssociationSet Name="FK__RoomTypeO__Offic__4F7CD00D" Association="Self.FK__RoomTypeO__Offic__4F7CD00D">
+    <AssociationSet Name="FK__RoomTypeO__Offic__0E6E26BF" Association="Self.FK__RoomTypeO__Offic__0E6E26BF">
       <End Role="OfficeFacilities" EntitySet="OfficeFacilities" />
-      <End Role="RoomTypeOptions" EntitySet="RoomTypeOptions" />
+      <End Role="RoomTypeOptionsFacility" EntitySet="RoomTypeOptionsFacility" />
     </AssociationSet>
-    <AssociationSet Name="FK__RoomTypeO__RoomT__5070F446" Association="Self.FK__RoomTypeO__RoomT__5070F446">
+    <AssociationSet Name="FK__RoomTypeO__RoomT__0F624AF8" Association="Self.FK__RoomTypeO__RoomT__0F624AF8">
+      <End Role="RoomTypeOptions" EntitySet="RoomTypeOptions" />
+      <End Role="RoomTypeOptionsFacility" EntitySet="RoomTypeOptionsFacility" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoomTypeO__RoomT__160F4887" Association="Self.FK__RoomTypeO__RoomT__160F4887">
       <End Role="RoomTypes" EntitySet="RoomTypes" />
       <End Role="RoomTypeOptions" EntitySet="RoomTypeOptions" />
     </AssociationSet>
-    <AssociationSet Name="FK__RoomTypeO__Updat__5165187F" Association="Self.FK__RoomTypeO__Updat__5165187F">
+    <AssociationSet Name="FK__RoomTypeO__Updat__10566F31" Association="Self.FK__RoomTypeO__Updat__10566F31">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RoomTypeOptionsFacility" EntitySet="RoomTypeOptionsFacility" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoomTypeO__Updat__17036CC0" Association="Self.FK__RoomTypeO__Updat__17036CC0">
       <End Role="Users" EntitySet="Users" />
       <End Role="RoomTypeOptions" EntitySet="RoomTypeOptions" />
     </AssociationSet>

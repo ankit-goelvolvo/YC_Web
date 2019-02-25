@@ -19,18 +19,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Longitude)
                 </th>
-                @*<th>
-                    Created By
-                </th>
-                <th>
-                    Created Date
-                </th>
-                <th>
-                    Updated By
-                </th>
-                <th>
-                    Updated Date
-                </th>*@
                 <th></th>
             </tr>
         </thead>
@@ -51,18 +39,6 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Longitude)
                     </td>
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.User.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CreatedDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.User1.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UpdatedDate)
-                    </td>*@
                     <td>
                         <a href="#" onclick="DetailLocation(@item.LocationID)">Details</a> |
                         <a href="#" onclick="EditLocation(@item.LocationID)">Edit</a> |

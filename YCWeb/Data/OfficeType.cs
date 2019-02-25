@@ -11,8 +11,7 @@ namespace YCWeb.Data
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class OfficeType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +21,7 @@ namespace YCWeb.Data
         }
     
         public int OfficeTypeID { get; set; }
-        [Required]
-        [Display(Name ="Office Type Name")]
         public string OfficeTypeName { get; set; }
-        [Required]
         public string Description { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }

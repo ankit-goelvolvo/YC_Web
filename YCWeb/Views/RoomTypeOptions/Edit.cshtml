@@ -1,4 +1,4 @@
-﻿@model YCWeb.Data.RoomTypeOption
+﻿@model YCWeb.Models.Facilitiy
 
 @{
     Layout = null;
@@ -19,9 +19,13 @@
     #RoomTypeID {
         width: 100% !important;
         height: 40px;
+        background: #D3D3D3;
     }
 
     #Price {
+        height: 40px !important;
+    }
+    #Description {
         height: 40px !important;
     }
 </style>
@@ -31,38 +35,61 @@
 
 <div class="form-horizontal">
     @Html.HiddenFor(model => model.RoomTypeOptionID)
+    @Html.HiddenFor(model => model.RoomtypeId)
     @Html.HiddenFor(model => model.CreatedBy)
     @Html.Hidden("CreatedDate", data)
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.RoomTypeID, "Room Type", htmlAttributes: new { @class = "control-label col-md-10 required " })
-        <div class="col-md-10">
-            @Html.DropDownList("RoomTypeID", null, htmlAttributes: new { id = "RoomTypeID" })
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoomtypeId, "Room Type", htmlAttributes: new { @class = "control-label col-md-10 required " })
+                    <div class="col-md-10">
+                        @Html.DropDownList("RoomTypeID", null, htmlAttributes: new { id = "RoomTypeID" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-10 required" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", id = "Description" } })
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.OfficeFacilityID, "Office Facility", htmlAttributes: new { @class = "control-label col-md-10 required" })
-        <div class="col-md-10">
-            @Html.ListBoxFor(model => model.SelectedValues, Model.Facilities, new { id = "OfficeFacility" })
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-10 required" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", id = "Price" } })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsRefundable, htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsRefundable, new { htmlAttributes = new { id = "IsRefundable" } })
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-10 required" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", id = "Price" } })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IsRefundable, htmlAttributes: new { @class = "control-label col-md-10" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.IsRefundable, new { htmlAttributes = new { id = "IsRefundable" } })
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OfficeFacilityID, "Office Facility", htmlAttributes: new { @class = "control-label col-md-10 required" })
+                    <div class="col-md-10">
+                        @Html.ListBoxFor(model => model.SelectedValues, Model.Facilities, new { id = "OfficeFacility" })
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="button" value="Update" class="btn btn-success" onclick="updateRoomTypeOption();" />
@@ -74,3 +101,6 @@
 <div>
     <button onclick="OpenRoomTypeOption();" class="BackList">Back to List</button>
 </div>
+<script type="text/javascript">
+    $("#RoomTypeID").attr("disabled", "disabled"); 
+</script>

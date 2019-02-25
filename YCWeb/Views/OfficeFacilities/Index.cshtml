@@ -17,21 +17,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.Office.OfficeName)
-                    </th>
-                    <th>
-                        Created By
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CreatedDate)
-                    </th>
-                    <th>
-                        Updated By
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.UpdatedDate)
-                    </th>*@
                 <th></th>
             </tr>
         </thead>
@@ -49,21 +34,6 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.Office.OfficeName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.User.FirstName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CreatedDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.User1.FirstName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.UpdatedDate)
-                        </td>*@
                     <td>
                         <a href="#" onclick="DetailOfficeFacility(@item.OfficeFacilityID)">Details</a> |
                         <a href="#" onclick="EditOfficeFacility(@item.OfficeFacilityID)">Edit</a> |

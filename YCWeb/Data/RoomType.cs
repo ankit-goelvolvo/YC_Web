@@ -11,8 +11,7 @@ namespace YCWeb.Data
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class RoomType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,26 +23,20 @@ namespace YCWeb.Data
         }
     
         public int RoomTypeID { get; set; }
-        [Required]
-        [Display(Name ="Room Type")]
         public string RoomTypeName { get; set; }
         public string Description { get; set; }
-        [Display(Name = "Created By")]
         public Nullable<int> CreatedBy { get; set; }
-        [Display(Name = "Created Date")]
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        [Display(Name = "Updated By")]
         public Nullable<int> UpdatedBy { get; set; }
-        [Display(Name = "Updated Date")]
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RoomAmenity> RoomAmenities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Rooms { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RoomTypeOption> RoomTypeOptions { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoomTypeOption> RoomTypeOptions { get; set; }
     }
 }

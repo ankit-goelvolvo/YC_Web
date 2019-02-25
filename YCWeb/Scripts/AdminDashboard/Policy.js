@@ -1,6 +1,5 @@
-﻿
-
-var OpenPolicies = function () {
+﻿var OpenPolicies = function () {
+    $('.modal-dialog').css('max-width', '50%');
     ShowModalLoader();
     var options = {
         "backdrop": "static",
@@ -27,7 +26,37 @@ var OpenPolicies = function () {
     return false;
 };
 
+var DetailPolicy = function (id) {
+    $('.modal-dialog').css('max-width', '45%');
+    ShowModalLoader();
+    $.ajax({
+        type: "GET",
+        data: { 'id': id },
+        url: "/Policies/Details",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            if (data.StatusCode == 204) {
+                $('#footerText').text(data.StatusMessage);
+                $('#footerText').show();
+                $('#footerText').delay(5000).fadeOut();
+            }
+            else {
+                $('#headerText').text("Details");
+                $('#myModalContent').empty();
+                $('#myModalContent').html(data);
+            }
+            HideModalLoader();
+        },
+        error: function () {
+            alert("Content load failed.");
+        }
+    });
+    return false;
+};
+
 var CreatePolicy = function () {
+    $('.modal-dialog').css('max-width', '45%');
     ShowModalLoader();
     var options = {
         "backdrop": "static",
@@ -90,6 +119,7 @@ var savePolicy = function () {
 };
 
 var EditPolicy = function (id) {
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -151,6 +181,7 @@ var updatePolicy = function () {
 };
 
 var DeletePolicy = function (id) {
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",

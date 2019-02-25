@@ -159,21 +159,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RoomTypeOptions">
-      <EntityTypeMapping TypeName="YCModel.RoomTypeOption">
-        <MappingFragment StoreEntitySet="RoomTypeOptions">
-          <ScalarProperty Name="RoomTypeOptionID" ColumnName="RoomTypeOptionID" />
-          <ScalarProperty Name="OfficeFacilityID" ColumnName="OfficeFacilityID" />
-          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="IsRefundable" ColumnName="IsRefundable" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RoomTypes">
       <EntityTypeMapping TypeName="YCModel.RoomType">
         <MappingFragment StoreEntitySet="RoomTypes">
@@ -285,6 +270,34 @@
           <ScalarProperty Name="Action" ColumnName="Action" />
           <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
           <ScalarProperty Name="ActionLogId" ColumnName="ActionLogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomTypeOptions">
+      <EntityTypeMapping TypeName="YCModel.RoomTypeOption">
+        <MappingFragment StoreEntitySet="RoomTypeOptions">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsRefundable" ColumnName="IsRefundable" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+          <ScalarProperty Name="RoomTypeOptionID" ColumnName="RoomTypeOptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomTypeOptionsFacilities">
+      <EntityTypeMapping TypeName="YCModel.RoomTypeOptionsFacility">
+        <MappingFragment StoreEntitySet="RoomTypeOptionsFacility">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="OfficeFacilityID" ColumnName="OfficeFacilityID" />
+          <ScalarProperty Name="RoomTypeOptionID" ColumnName="RoomTypeOptionID" />
+          <ScalarProperty Name="RoomTypeOptionsFacilityID" ColumnName="RoomTypeOptionsFacilityID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

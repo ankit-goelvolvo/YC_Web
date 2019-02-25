@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model '\\VCN.DS.VOLVO.NET\CLI-HM\HM0914\a291217\My Documents\Perosnal\YC\YCWeb\Data\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\A291217\Documents\YC\YCWeb\Data\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

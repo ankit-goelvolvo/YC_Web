@@ -27,16 +27,12 @@ namespace YCWeb.Controllers
         // GET: Policies/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Policy policy = db.Policies.Find(id);
             if (policy == null)
             {
-                return HttpNotFound();
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Policy not found" }, JsonRequestBehavior.AllowGet);
             }
-            return View(policy);
+            return PartialView(policy);
         }
 
         // GET: Policies/Create

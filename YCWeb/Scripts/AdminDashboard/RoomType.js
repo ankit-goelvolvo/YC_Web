@@ -1,4 +1,5 @@
 ﻿var OpenRoomType = function () {
+    $('.modal-dialog').css('max-width', '50%');
     var options = {
         "backdrop": "static",
         keyboard: true

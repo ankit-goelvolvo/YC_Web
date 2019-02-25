@@ -1,43 +1,43 @@
-﻿@model IEnumerable < YCWeb.Models.Facilitiy>
+﻿@model YCWeb.Models.Facilitiy
 
 @{
     Layout = null;
 }
-<div class="tbl-header">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Room Type
-                </th>
-                <th>
-                    Facilities
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-    </table>
-</div>
-<div class="tbl-content">
-    <table>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="tbl-header">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RoomtypeName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FacilityName)
-                    </td>
-                    <td>
-                        <a href="#" onclick="DeleteConfirmedRoomTypeOption(@item.RoomtypeId,@item.RoomTypeOptionID)">Delete</a>
-                    </td>
+                    <th>
+                        Room Type
+                    </th>
+                    <th>
+                        Facilities
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</div>
-<div>
-    <button onclick="OpenRoomTypeOption();" class="BackList">Back to List</button>
-</div>
+            </thead>
+        </table>
+    </div>
+    <div class="tbl-content">
+        <table>
+            <tbody>
+                @foreach (var item in Model.RoomTypeFacilities)
+                {
+                    <tr>
+                        <td>
+                            @Model.RoomtypeName - @Model.Description
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FacilityName)
+                        </td>
+                        <td>
+                            <a href="#" onclick="DeleteConfirmedRoomTypeOption(@Model.RoomTypeOptionID,@item.RoomTypeOptionsFacilityID)">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button onclick="OpenRoomTypeOption();" class="BackList">Back to List</button>
+    </div>

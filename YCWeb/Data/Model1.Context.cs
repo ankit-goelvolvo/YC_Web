@@ -37,7 +37,6 @@ namespace YCWeb.Data
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<RoomAmenity> RoomAmenities { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
-        public virtual DbSet<RoomTypeOption> RoomTypeOptions { get; set; }
         public virtual DbSet<RoomType> RoomTypes { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
@@ -46,6 +45,8 @@ namespace YCWeb.Data
         public virtual DbSet<UserType> UserTypes { get; set; }
         public virtual DbSet<Verification> Verifications { get; set; }
         public virtual DbSet<ActionLog> ActionLogs { get; set; }
+        public virtual DbSet<RoomTypeOption> RoomTypeOptions { get; set; }
+        public virtual DbSet<RoomTypeOptionsFacility> RoomTypeOptionsFacilities { get; set; }
     
         public virtual ObjectResult<AddBilling_Result> AddBilling(Nullable<int> billingID, Nullable<int> hotelBookingID, Nullable<System.DateTime> billingDate, Nullable<decimal> price, Nullable<decimal> taxAmount, Nullable<decimal> totalAmount, Nullable<int> userID, Nullable<int> createdBy, Nullable<System.DateTime> createdDate, Nullable<int> updatedBy, Nullable<System.DateTime> updatedDate)
         {

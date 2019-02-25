@@ -11,16 +11,12 @@ namespace YCWeb.Data
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Policy
     {
         public int PolicyID { get; set; }
-        [Required]
-        [Display(Name = "Policy Name")]
         public string PolicyName { get; set; }
         public string Description { get; set; }
-        [Required]
         public int OfficeID { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }

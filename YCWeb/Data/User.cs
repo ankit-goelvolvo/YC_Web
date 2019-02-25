@@ -39,8 +39,6 @@ namespace YCWeb.Data
             this.RoomAmenities1 = new HashSet<RoomAmenity>();
             this.Rooms = new HashSet<Room>();
             this.Rooms1 = new HashSet<Room>();
-            this.RoomTypeOptions = new HashSet<RoomTypeOption>();
-            this.RoomTypeOptions1 = new HashSet<RoomTypeOption>();
             this.RoomTypes = new HashSet<RoomType>();
             this.RoomTypes1 = new HashSet<RoomType>();
             this.Status = new HashSet<Status>();
@@ -57,6 +55,10 @@ namespace YCWeb.Data
             this.UserTypes1 = new HashSet<UserType>();
             this.Verifications = new HashSet<Verification>();
             this.ActionLogs = new HashSet<ActionLog>();
+            this.RoomTypeOptions = new HashSet<RoomTypeOption>();
+            this.RoomTypeOptions1 = new HashSet<RoomTypeOption>();
+            this.RoomTypeOptionsFacilities = new HashSet<RoomTypeOptionsFacility>();
+            this.RoomTypeOptionsFacilities1 = new HashSet<RoomTypeOptionsFacility>();
         }
     
         public int UserID { get; set; }
@@ -122,10 +124,6 @@ namespace YCWeb.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Rooms1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RoomTypeOption> RoomTypeOptions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RoomTypeOption> RoomTypeOptions1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RoomType> RoomTypes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RoomType> RoomTypes1 { get; set; }
@@ -160,5 +158,13 @@ namespace YCWeb.Data
         public virtual ICollection<Verification> Verifications { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActionLog> ActionLogs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoomTypeOption> RoomTypeOptions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoomTypeOption> RoomTypeOptions1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoomTypeOptionsFacility> RoomTypeOptionsFacilities { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoomTypeOptionsFacility> RoomTypeOptionsFacilities1 { get; set; }
     }
 }

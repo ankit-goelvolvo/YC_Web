@@ -11,49 +11,32 @@ namespace YCWeb.Data
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
-
+    
     public partial class RoomTypeOption
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RoomTypeOption()
         {
             this.Rooms = new HashSet<Room>();
+            this.RoomTypeOptionsFacilities = new HashSet<RoomTypeOptionsFacility>();
         }
     
         public int RoomTypeOptionID { get; set; }
-        [Required]
-        [Display(Name = "Office Facility")]
-        public int OfficeFacilityID { get; set; }
-        [Required]
-        [Display(Name = "Room Type")]
         public int RoomTypeID { get; set; }
-        [Required]
         public decimal Price { get; set; }
-        [Display(Name = "Is Refundable")]
         public Nullable<bool> IsRefundable { get; set; }
         public Nullable<int> CreatedBy { get; set; }
-        [Display(Name = "Created Date")]
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        [Display(Name = "Updated By")]
         public Nullable<int> UpdatedBy { get; set; }
-        [Display(Name = "Updated Date")]
         public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string Description { get; set; }
     
-        public virtual OfficeFacility OfficeFacility { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Rooms { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoomTypeOptionsFacility> RoomTypeOptionsFacilities { get; set; }
         public virtual RoomType RoomType { get; set; }
         public virtual User User1 { get; set; }
-        public List<SelectListItem> Facilities { set; get; }
-        
-        public string[] SelectedValues { get; set; }
-
-        public string SelectedFacility { get; set; }
-
-        public string CreateBy { get; set; }
-        public string UpdateBy { get; set; }
     }
 }

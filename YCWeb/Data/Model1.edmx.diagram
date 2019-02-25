@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="45901f4fc8a44f6fbd054455ab354736" Name="Diagram1" ZoomLevel="47">
+      <Diagram DiagramId="45901f4fc8a44f6fbd054455ab354736" Name="Diagram1" ZoomLevel="71">
         <EntityTypeShape EntityType="YCModel.Billing" Width="1.5" PointX="8.25" PointY="21.875" IsExpanded="true" />
         <EntityTypeShape EntityType="YCModel.HotelBooking" Width="1.5" PointX="7.5" PointY="29" IsExpanded="true" />
         <EntityTypeShape EntityType="YCModel.Location" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="YCModel.Role" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
         <EntityTypeShape EntityType="YCModel.RoomAmenity" Width="1.5" PointX="10.5" PointY="33.25" IsExpanded="true" />
         <EntityTypeShape EntityType="YCModel.Room" Width="1.5" PointX="17.25" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YCModel.RoomTypeOption" Width="1.5" PointX="15" PointY="27.875" IsExpanded="true" />
         <EntityTypeShape EntityType="YCModel.RoomType" Width="1.5" PointX="5.25" PointY="38.5" IsExpanded="true" />
         <EntityTypeShape EntityType="YCModel.Status" Width="1.5" PointX="5.25" PointY="42.625" IsExpanded="true" />
         <EntityTypeShape EntityType="YCModel.UserRole" Width="1.5" PointX="10.5" PointY="29.25" IsExpanded="true" />
@@ -38,7 +37,6 @@
         <AssociationConnector Association="YCModel.FK__OfficeFac__Creat__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__OfficeFac__Offic__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__OfficeFac__Updat__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="YCModel.FK__RoomTypeO__Offic__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__Offices__Created__3D5E1FD2" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__Offices__OfficeT__3F466844" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__Offices__Updated__403A8C7D" ManuallyRouted="false" />
@@ -55,11 +53,7 @@
         <AssociationConnector Association="YCModel.FK__RoomAmeni__Updat__49C3F6B7" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__Rooms__CreatedBy__4AB81AF0" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__Rooms__RoomTypeI__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="YCModel.FK__Rooms__RoomTypeO__4CA06362" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__Rooms__UpdatedBy__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="YCModel.FK__RoomTypeO__Creat__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="YCModel.FK__RoomTypeO__RoomT__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="YCModel.FK__RoomTypeO__Updat__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__RoomTypes__Creat__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__RoomTypes__Updat__534D60F1" ManuallyRouted="false" />
         <AssociationConnector Association="YCModel.FK__Status__CreatedB__5441852A" ManuallyRouted="false" />
@@ -79,6 +73,16 @@
         <AssociationConnector Association="YCModel.FK_Verification_Users" />
         <EntityTypeShape EntityType="YCModel.ActionLog" Width="1.5" PointX="3.375" PointY="0.75" />
         <AssociationConnector Association="YCModel.FK_ActionLog_Users" />
+        <EntityTypeShape EntityType="YCModel.RoomTypeOption" Width="1.5" PointX="13.5" PointY="29" />
+        <EntityTypeShape EntityType="YCModel.RoomTypeOptionsFacility" Width="1.5" PointX="18.75" PointY="23.625" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__Offic__0E6E26BF" />
+        <AssociationConnector Association="YCModel.FK__Rooms__RoomTypeO__4CA06362" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__Creat__151B244E" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__RoomT__0F624AF8" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__RoomT__160F4887" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__Updat__17036CC0" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__Creat__0D7A0286" />
+        <AssociationConnector Association="YCModel.FK__RoomTypeO__Updat__10566F31" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

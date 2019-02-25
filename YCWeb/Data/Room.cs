@@ -36,7 +36,7 @@ namespace YCWeb.Data
         public virtual ICollection<HotelBooking> HotelBookings { get; set; }
         public virtual User User { get; set; }
         public virtual RoomType RoomType { get; set; }
-        public virtual RoomTypeOption RoomTypeOption { get; set; }
         public virtual User User1 { get; set; }
+        public virtual RoomTypeOption RoomTypeOption { get; set; }
     }
 }

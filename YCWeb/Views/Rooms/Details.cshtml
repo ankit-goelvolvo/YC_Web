@@ -1,0 +1,106 @@
+﻿@model YCWeb.Data.Room
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Room</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RoomName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MaxAdults)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MaxAdults)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MaxChildren)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MaxChildren)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User.FirstName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomType.RoomTypeName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RoomType.RoomTypeName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomTypeOption.RoomTypeOptionID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RoomTypeOption.RoomTypeOptionID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User1.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User1.FirstName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RoomID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

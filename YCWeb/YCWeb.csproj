@@ -141,6 +141,7 @@
     <Compile Include="Controllers\OfficesController.cs" />
     <Compile Include="Controllers\OfficeTypesController.cs" />
     <Compile Include="Controllers\PoliciesController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\RoomTypeOptionsController.cs" />
     <Compile Include="Controllers\RoomTypesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -300,6 +301,9 @@
     <Compile Include="Data\RoomTypeOption.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\RoomTypeOptionsFacility.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\Status.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -374,6 +378,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Facilitiy.cs" />
+    <Compile Include="Models\FacilityOption.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\SessionEntity.cs" />
     <Compile Include="Models\Status.cs" />
@@ -501,6 +506,7 @@
     <Content Include="Images\room-5.jpg" />
     <Content Include="Images\room-6.jpg" />
     <Content Include="Images\shampoo.png" />
+    <Content Include="Images\signin-image.jpg" />
     <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\type.png" />
     <Content Include="Scripts\AdminDashboard\Location.js" />
@@ -508,6 +514,7 @@
     <Content Include="Scripts\AdminDashboard\Offices.js" />
     <Content Include="Scripts\AdminDashboard\OfficeType.js" />
     <Content Include="Scripts\AdminDashboard\Policy.js" />
+    <Content Include="Scripts\AdminDashboard\Rooms.js" />
     <Content Include="Scripts\AdminDashboard\RoomType.js" />
     <Content Include="Scripts\AdminDashboard\RoomTypeOptions.js" />
     <Content Include="Scripts\aos.js" />
@@ -792,6 +799,11 @@
     <Content Include="Views\RoomTypeOptions\Details.cshtml" />
     <Content Include="Views\RoomTypeOptions\Edit.cshtml" />
     <Content Include="Views\RoomTypeOptions\Index.cshtml" />
+    <Content Include="Views\Rooms\Create.cshtml" />
+    <Content Include="Views\Rooms\Delete.cshtml" />
+    <Content Include="Views\Rooms\Details.cshtml" />
+    <Content Include="Views\Rooms\Edit.cshtml" />
+    <Content Include="Views\Rooms\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -11,8 +11,7 @@ namespace YCWeb.Data
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Location
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,12 +21,8 @@ namespace YCWeb.Data
         }
     
         public int LocationID { get; set; }
-        [Required]
-        [Display(Name = "Location Name")]
         public string LocationName { get; set; }
-        [Required]
         public string Latitude { get; set; }
-        [Required]
         public string Longitude { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }

@@ -16,24 +16,6 @@
                 <th>
                     Facilities
                 </th>
-                @*<th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IsRefundable)
-                </th>
-                <th>
-                    Created By
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatedDate)
-                </th>
-                <th>
-                    Updated By
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UpdatedDate)
-                </th>*@
                 <th></th>
             </tr>
         </thead>
@@ -46,33 +28,15 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.RoomtypeName)
+                    @Html.DisplayFor(modelItem => item.RoomtypeName) - @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FacilityName)
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsRefundable)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreatedDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User1.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UpdatedDate)
-                </td>*@
-                <td>
-                    <a href="#" onclick="DetailRoomTypeOptions(@item.RoomtypeId)">Details</a> |
-                    <a href="#" onclick="EditRoomTypeOption(@item.RoomtypeId)">Edit</a> |
-                    <a href="#" onclick="DeleteRoomTypeOption(@item.RoomtypeId)">Delete</a>
+                    <a href="#" onclick="DetailRoomTypeOptions(@item.RoomTypeOptionID)">Details</a> |
+                    <a href="#" onclick="EditRoomTypeOption(@item.RoomTypeOptionID)">Edit</a> |
+                    <a href="#" onclick="DeleteRoomTypeOption(@item.RoomTypeOptionID)">Delete</a>
                 </td>
             </tr>
             }

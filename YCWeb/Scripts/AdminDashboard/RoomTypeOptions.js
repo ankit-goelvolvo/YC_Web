@@ -1,5 +1,5 @@
 ﻿var OpenRoomTypeOption = function () {
-    $('.modal-dialog').css('max-width', '65%');
+    $('.modal-dialog').css('max-width', '55%');
     var options = {
         "backdrop": "static",
         keyboard: true
@@ -25,19 +25,21 @@
 };
 
 var CreateRoomTypeOption = function () {
+    ShowModalLoader();
     $('.modal-dialog').css('max-width', '45%');
     var options = {
         "backdrop": "static",
         keyboard: true
     };
     var url = "@Url.Action('Create','RoomTypeOptions')";
-    $('#myModalContent').empty();
+    
     $.post("/RoomTypeOptions/Create", function (data) {
-        
+        $('#myModalContent').empty();
         $('#myModalContent').html(data);
         $('#myModal').modal(options);
         $('#headerText').text("Room Type Option");
         $('#myModal').modal('show');
+        HideModalLoader();
         //$("#SomeDivToShowTheResult").html(res);
     });
     //$.ajax({
@@ -208,11 +210,11 @@ var DeleteRoomTypeOption = function (id) {
     return false;
 };
 
-var DeleteConfirmedRoomTypeOption = function (RoomtypeId,officeTypeID) {
+var DeleteConfirmedRoomTypeOption = function (RoomTypeOptionID, RoomTypeOptionsFacilityID) {
     ShowModalLoader();
     $.ajax({
         type: "GET",
-        data: { 'id': officeTypeID },
+        data: {'rtoId': RoomTypeOptionID, 'rtofId': RoomTypeOptionsFacilityID},
         url: "/RoomTypeOptions/DeleteConfirmed",
         contentType: "application/json; charset=utf-8",
         datatype: "json",
@@ -223,7 +225,7 @@ var DeleteConfirmedRoomTypeOption = function (RoomtypeId,officeTypeID) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                DeleteRoomTypeOption(RoomtypeId);
+                DeleteRoomTypeOption(RoomTypeOptionID);
                 $('#footerText').text(data.StatusMessage);
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();
