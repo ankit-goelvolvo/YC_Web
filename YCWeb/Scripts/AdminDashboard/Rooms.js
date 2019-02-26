@@ -1,5 +1,5 @@
 ﻿var OpenRooms = function () {
-    $('.modal-dialog').css('max-width', '65%');
+    $('.modal-dialog').css('max-width', '55%');
     var options = {
         "backdrop": "static",
         keyboard: true
@@ -30,38 +30,38 @@ var CreateRooms = function () {
         "backdrop": "static",
         keyboard: true
     };
-    var url = "@Url.Action('Create','RoomTypeOptions')";
-    $('#myModalContent').empty();
-    $.post("/Rooms/Create", function (data) {
+    //var url = "@Url.Action('Create','RoomTypeOptions')";
+    //$('#myModalContent').empty();
+    //$.post("/Rooms/Create", function (data) {
 
-        $('#myModalContent').html(data);
-        $('#myModal').modal(options);
-        $('#headerText').text("Room");
-        $('#myModal').modal('show');
-        //$("#SomeDivToShowTheResult").html(res);
-    });
-    //$.ajax({
-    //    type: "GET",
-    //    url: "/RoomTypeOptions/Create",
-    //    contentType: "application/json; charset=utf-8",
-    //    datatype: "json",
-    //    success: function (data) {
-    //        $('#myModalContent').empty();
-    //        $('#myModalContent').html(data);
-    //        $('#myModal').modal(options);
-    //        $('#headerText').text("Room Type Option");
-    //        $('#myModal').modal('show');
-    //    },
-    //    error: function () {
-    //        alert("Content load failed.");
-    //    }
+    //    $('#myModalContent').html(data);
+    //    $('#myModal').modal(options);
+    //    $('#headerText').text("Room");
+    //    $('#myModal').modal('show');
+    //    //$("#SomeDivToShowTheResult").html(res);
     //});
+    $.ajax({
+        type: "GET",
+        url: "/Rooms/Create",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            $('#myModalContent').empty();
+            $('#myModalContent').html(data);
+            $('#myModal').modal(options);
+            $('#headerText').text("Create Room");
+            $('#myModal').modal('show');
+        },
+        error: function () {
+            alert("Content load failed.");
+        }
+    });
     return false;
 };
 
 var saveRooms = function () {
     ShowModalLoader();
-    var data = $('#formSaveRooms').serialize();
+    var data = $('#formSaveRoom').serialize();
     $.ajax({
         type: 'GET',
         cache: false,
@@ -71,7 +71,7 @@ var saveRooms = function () {
         dataType: "json",
         success: function (data) {
             if (data.StatusCode == 201) {
-                OpenRoomTypeOption();
+                OpenRooms();
                 $('#footerText').text(data.StatusMessage);
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();
@@ -150,7 +150,7 @@ var EditRooms = function (id) {
 
 var updateRooms = function () {
     ShowModalLoader();
-    var data = $('#formEditRooms').serialize();
+    var data = $('#formEditRoom').serialize();
     $.ajax({
         type: 'GET',
         cache: false,
@@ -160,7 +160,7 @@ var updateRooms = function () {
         dataType: "json",
         success: function (data) {
             if (data.StatusCode == 201) {
-                OpenRoomTypeOption();
+                OpenRooms();
                 $('#footerText').text(data.StatusMessage);
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();
@@ -208,11 +208,11 @@ var DeleteRooms = function (id) {
     return false;
 };
 
-var DeleteConfirmedRooms = function (RoomtypeId, officeTypeID) {
+var DeleteConfirmedRooms = function (RoomID) {
     ShowModalLoader();
     $.ajax({
         type: "GET",
-        data: { 'id': officeTypeID },
+        data: { 'id': RoomID },
         url: "/Rooms/DeleteConfirmed",
         contentType: "application/json; charset=utf-8",
         datatype: "json",
@@ -223,7 +223,7 @@ var DeleteConfirmedRooms = function (RoomtypeId, officeTypeID) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                DeleteRoomTypeOption(RoomtypeId);
+                OpenRooms();
                 $('#footerText').text(data.StatusMessage);
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();

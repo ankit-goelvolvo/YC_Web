@@ -3,110 +3,126 @@
 @{
     Layout = null;
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>Room</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.RoomName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.RoomName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.MaxAdults)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.MaxAdults)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.MaxChildren)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.MaxChildren)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CreatedDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.UpdatedDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.User.FirstName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.User.FirstName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.RoomType.RoomTypeName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.RoomType.RoomTypeName)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.RoomTypeOption.RoomTypeOptionID)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.RoomTypeOption.RoomTypeOptionID)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.User1.FirstName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.User1.FirstName)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.RoomName)
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.RoomName)
+                    </div>
+                </div>
             </div>
-        }
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.Description)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.MaxAdults)
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.MaxAdults)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.MaxChildren)
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.MaxChildren)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Room Type
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.RoomType.RoomTypeName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Room Option Type
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.RoomTypeOption.Description)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Created by
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.User.FirstName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Updated Date
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Updated by
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.User1.FirstName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Updated Date
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.UpdatedDate)
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Delete" class="btn btn-danger" onclick="DeleteConfirmedRooms(@Model.RoomID);" />
+        </div>
+    </div>
+</div>
+<div>
+    <button onclick="OpenRooms();" class="BackList">Back to List</button>
+</div>

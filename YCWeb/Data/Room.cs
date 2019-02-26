@@ -11,7 +11,8 @@ namespace YCWeb.Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Room
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,11 +22,17 @@ namespace YCWeb.Data
         }
     
         public int RoomID { get; set; }
+        [Required]
+        [Display(Name="Room Name")]
         public string RoomName { get; set; }
         public string Description { get; set; }
+        [Required]
         public int RoomTypeID { get; set; }
+        [Required]
         public int RoomTypeOptionID { get; set; }
+        [Display(Name = "Max Adults")]
         public Nullable<int> MaxAdults { get; set; }
+        [Display(Name = "Max Children")]
         public Nullable<int> MaxChildren { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }

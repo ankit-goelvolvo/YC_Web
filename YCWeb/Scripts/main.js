@@ -387,9 +387,6 @@ var OpenRoomAmenities = function () {
     alert("Location");
 };
 
-var OpenRooms = function () {
-    alert("Location");
-};
 
 var LogOut = function () {
     alert("Logged out successfully");

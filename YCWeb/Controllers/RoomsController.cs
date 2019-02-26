@@ -7,9 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using YCWeb.Data;
+using YCWeb.Filter;
+using YCWeb.Models;
 
 namespace YCWeb.Controllers
 {
+    [CustomActionFilter]
     public class RoomsController : Controller
     {
         private YCEntities db = new YCEntities();
@@ -24,16 +27,12 @@ namespace YCWeb.Controllers
         // GET: Rooms/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Room room = db.Rooms.Find(id);
             if (room == null)
             {
-                return HttpNotFound();
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Room not found" }, JsonRequestBehavior.AllowGet);
             }
-            return View(room);
+            return PartialView(room);
         }
 
         // GET: Rooms/Create
@@ -41,47 +40,55 @@ namespace YCWeb.Controllers
         {
             ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName");
             ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName");
-            ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "RoomTypeOptionID");
+            ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "Description");
             ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName");
-            return View();
+            return PartialView();
         }
 
         // POST: Rooms/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RoomID,RoomName,Description,RoomTypeID,RoomTypeOptionID,MaxAdults,MaxChildren,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate")] Room room)
+        public JsonResult CreateRooms(Room room)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Rooms.Add(room);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    int totalExistRows = db.Rooms.Where(x => x.RoomName.ToUpper().Equals(room.RoomName.ToUpper())).Count();
+                    if (totalExistRows > 0)
+                    {
+                        return Json(new { StatusCode = HttpStatusCode.Found, StatusMessage = "Room already present" }, JsonRequestBehavior.AllowGet);
+                    }
+                    room.CreatedBy = (Session["User"] as SessionEntity).UserID;
+                    room.CreatedDate = DateTime.Now;
+                    db.Rooms.Add(room);
+                    db.SaveChanges();
+                    return Json(new { StatusCode = HttpStatusCode.Created, StatusMessage = "Room Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+                ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName");
+                ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName");
+                ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "Description");
+                ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName");
+            }
+            catch (Exception e)
+            {
+                return Json(new { StatusCode = HttpStatusCode.MethodNotAllowed, StatusMessage = e.Message }, JsonRequestBehavior.AllowGet);
             }
 
-            ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName", room.CreatedBy);
-            ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName", room.RoomTypeID);
-            ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "RoomTypeOptionID", room.RoomTypeOptionID);
-            ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName", room.UpdatedBy);
-            return View(room);
+            return Json(new { StatusCode = HttpStatusCode.MethodNotAllowed, StatusMessage = "Please enter required fields" }, JsonRequestBehavior.AllowGet);
         }
-
+                
         // GET: Rooms/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Room room = db.Rooms.Find(id);
             if (room == null)
             {
-                return HttpNotFound();
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Room not found" }, JsonRequestBehavior.AllowGet);
             }
             ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName", room.CreatedBy);
             ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName", room.RoomTypeID);
-            ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "RoomTypeOptionID", room.RoomTypeOptionID);
+            ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "Description", room.RoomTypeOptionID);
             ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName", room.UpdatedBy);
             return View(room);
         }
@@ -89,47 +96,55 @@ namespace YCWeb.Controllers
         // POST: Rooms/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RoomID,RoomName,Description,RoomTypeID,RoomTypeOptionID,MaxAdults,MaxChildren,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate")] Room room)
+        public JsonResult UpdateRooms(Room room)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(room).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(room).State = EntityState.Modified;
+                    room.UpdatedBy = (Session["User"] as SessionEntity).UserID;
+                    room.UpdatedDate = DateTime.Now;
+                    db.SaveChanges();
+                    return Json(new { StatusCode = HttpStatusCode.Created, StatusMessage = "Room Updated Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+                ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName", room.CreatedBy);
+                ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName", room.RoomTypeID);
+                ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "Description", room.RoomTypeOptionID);
+                ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName", room.UpdatedBy);
             }
-            ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "FirstName", room.CreatedBy);
-            ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName", room.RoomTypeID);
-            ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "RoomTypeOptionID", room.RoomTypeOptionID);
-            ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName", room.UpdatedBy);
-            return View(room);
+            catch (Exception e)
+            {
+                return Json(new { StatusCode = HttpStatusCode.MethodNotAllowed, StatusMessage = e.Message }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { StatusCode = HttpStatusCode.MethodNotAllowed, StatusMessage = "Please enter required fields" }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Rooms/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Room room = db.Rooms.Find(id);
             if (room == null)
             {
-                return HttpNotFound();
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Room not found" }, JsonRequestBehavior.AllowGet);
             }
-            return View(room);
+            return PartialView(room);
         }
 
         // POST: Rooms/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public JsonResult DeleteConfirmed(int id)
         {
-            Room room = db.Rooms.Find(id);
-            db.Rooms.Remove(room);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Room room = db.Rooms.Find(id);
+                db.Rooms.Remove(room);
+                db.SaveChanges();
+                return Json(new { StatusCode = HttpStatusCode.Created, StatusMessage = "Room Deleted Successfully" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { StatusCode = HttpStatusCode.MethodNotAllowed, StatusMessage = e.Message }, JsonRequestBehavior.AllowGet);
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -4,62 +4,49 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+<p>
+    <button onclick="CreateRooms();" class="btn btn-success">Create</button>
+</p>
+<div class="tbl-header">
     <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.RoomName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RoomType.RoomTypeName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RoomTypeOption.RoomTypeOptionID)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.User1.FirstName)
-            </th>*@
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomType.RoomTypeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomTypeOption.RoomTypeOptionID)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.User1.FirstName)
-            </td>*@
-            <td>
-                <a href="#" onclick="DetailRooms(@item.RoomID)">Details</a> |
-                <a href="#" onclick="EditRooms(@item.RoomID)">Edit</a> |
-                <a href="#" onclick="DeleteRooms(@item.RoomID)">Delete</a>
-            </td>
-        </tr>
-    }
-    
+        <thead>
+            <tr>
+                <th>
+                    Room Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th></th>
+            </tr>
+        </thead>
     </table>
-</body>
-</html>
+</div>
+<div class="tbl-content">
+    <table>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomName) 
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a href="#" onclick="DetailRooms(@item.RoomID)">Details</a> |
+                        <a href="#" onclick="EditRooms(@item.RoomID)">Edit</a> |
+                        <a href="#" onclick="DeleteRooms(@item.RoomID)">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    $(window).on("load resize ", function () {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({ 'padding-right': scrollWidth });
+    }).resize();
+</script>
