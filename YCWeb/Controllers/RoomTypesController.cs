@@ -24,16 +24,12 @@ namespace YCWeb.Controllers
         // GET: RoomTypes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             RoomType roomType = db.RoomTypes.Find(id);
             if (roomType == null)
             {
-                return HttpNotFound();
+                return Json(new { StatusCode = HttpStatusCode.NoContent, StatusMessage = "Room Amenities not found" }, JsonRequestBehavior.AllowGet);
             }
-            return View(roomType);
+            return PartialView(roomType);
         }
 
         // GET: RoomTypes/Create

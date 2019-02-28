@@ -141,6 +141,7 @@
     <Compile Include="Controllers\OfficesController.cs" />
     <Compile Include="Controllers\OfficeTypesController.cs" />
     <Compile Include="Controllers\PoliciesController.cs" />
+    <Compile Include="Controllers\RoomAmenitiesController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\RoomTypeOptionsController.cs" />
     <Compile Include="Controllers\RoomTypesController.cs" />
@@ -514,6 +515,7 @@
     <Content Include="Scripts\AdminDashboard\Offices.js" />
     <Content Include="Scripts\AdminDashboard\OfficeType.js" />
     <Content Include="Scripts\AdminDashboard\Policy.js" />
+    <Content Include="Scripts\AdminDashboard\RoomAmenities.js" />
     <Content Include="Scripts\AdminDashboard\Rooms.js" />
     <Content Include="Scripts\AdminDashboard\RoomType.js" />
     <Content Include="Scripts\AdminDashboard\RoomTypeOptions.js" />
@@ -804,6 +806,11 @@
     <Content Include="Views\Rooms\Details.cshtml" />
     <Content Include="Views\Rooms\Edit.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
+    <Content Include="Views\RoomAmenities\Create.cshtml" />
+    <Content Include="Views\RoomAmenities\Delete.cshtml" />
+    <Content Include="Views\RoomAmenities\Details.cshtml" />
+    <Content Include="Views\RoomAmenities\Edit.cshtml" />
+    <Content Include="Views\RoomAmenities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

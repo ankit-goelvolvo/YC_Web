@@ -90,7 +90,7 @@ namespace YCWeb.Controllers
             ViewBag.RoomTypeID = new SelectList(db.RoomTypes, "RoomTypeID", "RoomTypeName", room.RoomTypeID);
             ViewBag.RoomTypeOptionID = new SelectList(db.RoomTypeOptions, "RoomTypeOptionID", "Description", room.RoomTypeOptionID);
             ViewBag.UpdatedBy = new SelectList(db.Users, "UserID", "FirstName", room.UpdatedBy);
-            return View(room);
+            return PartialView(room);
         }
 
         // POST: Rooms/Edit/5

@@ -11,12 +11,17 @@ namespace YCWeb.Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class RoomAmenity
     {
         public int RoomAmenitiesID { get; set; }
+        [Required]
         public int RoomTypeID { get; set; }
+        [Required]
+        [Display(Name ="Room Amenity")]
         public string RoomAmenitiesName { get; set; }
+        [Required]
         public string Description { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }

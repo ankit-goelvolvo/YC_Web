@@ -382,12 +382,6 @@ var HideModalLoader = function () {
 };
 
 
-
-var OpenRoomAmenities = function () {
-    alert("Location");
-};
-
-
 var LogOut = function () {
     alert("Logged out successfully");
     $.ajax({

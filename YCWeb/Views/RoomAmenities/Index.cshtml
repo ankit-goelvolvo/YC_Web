@@ -1,0 +1,51 @@
+﻿@model IEnumerable<YCWeb.Data.RoomAmenity>
+
+@{
+    Layout = null;
+}
+<p>
+    <button onclick="CreateRoomAmenities();" class="btn btn-success">Create</button>
+</p>
+<div class="tbl-header">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Room Type
+                </th>
+                <th>
+                    Room Amenities
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="tbl-content">
+    <table>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomType.RoomTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomAmenitiesName)
+                    </td>
+                    <td>
+                        <a href="#" onclick="DetailRoomAmenities(@item.RoomAmenitiesID)">Details</a> |
+                        <a href="#" onclick="EditRoomAmenities(@item.RoomAmenitiesID)">Edit</a> |
+                        <a href="#" onclick="DeleteRoomAmenities(@item.RoomAmenitiesID)">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    $(window).on("load resize ", function () {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({ 'padding-right': scrollWidth });
+    }).resize();
+</script>

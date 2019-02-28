@@ -1,0 +1,96 @@
+﻿@model YCWeb.Data.RoomAmenity
+
+@{
+    Layout = null;
+}
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Room Type
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.RoomType.RoomTypeName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.Description)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Room Amenities
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.RoomAmenitiesName)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Created by
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.User.FirstName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Updated Date
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Updated by
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.User1.FirstName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        Updated Date
+                    </label>
+                    <div>
+                        @Html.DisplayFor(model => model.UpdatedDate)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Delete" class="btn btn-danger" onclick="DeleteConfirmedRoomAmenities(@Model.RoomAmenitiesID);" />
+        </div>
+    </div>
+</div>
+<div>
+    <button onclick="OpenRoomAmenities();" class="BackList">Back to List</button>
+</div>

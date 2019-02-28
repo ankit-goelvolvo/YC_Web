@@ -12,7 +12,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.RoomTypeName)
+                    Room Type
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Description)
@@ -35,6 +35,7 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
+                        <a href="#" onclick="DetailRoomType(@item.RoomTypeID)">Details</a> |
                         <a href="#" onclick="EditRoomType(@item.RoomTypeID)">Edit</a> |
                         <a href="#" onclick="DeleteRoomType(@item.RoomTypeID)">Delete</a>
                     </td>

@@ -23,6 +23,35 @@
     return false;
 };
 
+var DetailRoomType = function (id) {
+    $('.modal-dialog').css('max-width', '45%');
+    ShowModalLoader();
+    $.ajax({
+        type: "GET",
+        data: { 'id': id },
+        url: "/RoomTypes/Details",
+        contentType: "application/json; charset=utf-8",
+        datatype: "json",
+        success: function (data) {
+            if (data.StatusCode == 204) {
+                $('#footerText').text(data.StatusMessage);
+                $('#footerText').show();
+                $('#footerText').delay(5000).fadeOut();
+            }
+            else {
+                $('#headerText').text("Details");
+                $('#myModalContent').empty();
+                $('#myModalContent').html(data);
+            }
+            HideModalLoader();
+        },
+        error: function () {
+            alert("Content load failed.");
+        }
+    });
+    return false;
+};
+
 var CreateRoomType = function () {
     var options = {
         "backdrop": "static",
