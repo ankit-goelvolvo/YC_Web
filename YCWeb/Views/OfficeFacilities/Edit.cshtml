@@ -17,7 +17,7 @@
     @Html.Hidden("CreatedDate", data)
 
     <div class="form-group">
-        @Html.LabelFor(model => model.OfficeFacilityName, htmlAttributes: new { @class = "control-label col-md-10 required" })
+        <span class="control-label col-md-10 required">Office Facility Name</span>
         <div class="col-md-10">
             @Html.EditorFor(model => model.OfficeFacilityName, new { htmlAttributes = new { @class = "form-control" } })
         </div>

@@ -27,7 +27,7 @@
 };
 
 var DetailOffice = function (id) {
-    $('.modal-dialog').css('max-width', '60%');
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -42,9 +42,9 @@ var DetailOffice = function (id) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                $('#headerText').text("Details");
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);
+                $('#headerText').html("Office - " + "<span style='color: red;'>" + $("#Header_Text").val() + "</span>");
             }
             HideModalLoader();
         },

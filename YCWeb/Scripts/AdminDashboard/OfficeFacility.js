@@ -90,7 +90,7 @@ var saveOfficeFacility = function () {
 };
 
 var DetailOfficeFacility = function (id) {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -105,9 +105,9 @@ var DetailOfficeFacility = function (id) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                $('#headerText').text("Details");
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);
+                $('#headerText').html("Office Facility - " + "<span style='color: red;'>" + $("#Header_Text").val() + "</span>");
             }
             HideModalLoader();
         },

@@ -40,24 +40,7 @@ var CreateRoomTypeOption = function () {
         $('#headerText').text("Room Type Option");
         $('#myModal').modal('show');
         HideModalLoader();
-        //$("#SomeDivToShowTheResult").html(res);
     });
-    //$.ajax({
-    //    type: "GET",
-    //    url: "/RoomTypeOptions/Create",
-    //    contentType: "application/json; charset=utf-8",
-    //    datatype: "json",
-    //    success: function (data) {
-    //        $('#myModalContent').empty();
-    //        $('#myModalContent').html(data);
-    //        $('#myModal').modal(options);
-    //        $('#headerText').text("Room Type Option");
-    //        $('#myModal').modal('show');
-    //    },
-    //    error: function () {
-    //        alert("Content load failed.");
-    //    }
-    //});
     return false;
 };
 
@@ -108,9 +91,9 @@ var DetailRoomTypeOptions = function (id) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                $('#headerText').text("Details");
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);
+                $('#headerText').html("Room Type Option - " + "<span style='color: red;'>" + $("#Header_Text").val() + "</span>");
             }
             HideModalLoader();
         },

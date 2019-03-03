@@ -11,7 +11,7 @@
     <div class="form-horizontal">
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RoomTypeName, htmlAttributes: new { @class = "control-label col-md-2 required" })
+            <span class="control-label col-md-10 required">Room Type Name</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RoomTypeName, new { htmlAttributes = new { @class = "form-control" } })
             </div>

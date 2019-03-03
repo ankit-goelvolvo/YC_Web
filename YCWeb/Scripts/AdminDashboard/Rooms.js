@@ -30,16 +30,6 @@ var CreateRooms = function () {
         "backdrop": "static",
         keyboard: true
     };
-    //var url = "@Url.Action('Create','RoomTypeOptions')";
-    //$('#myModalContent').empty();
-    //$.post("/Rooms/Create", function (data) {
-
-    //    $('#myModalContent').html(data);
-    //    $('#myModal').modal(options);
-    //    $('#headerText').text("Room");
-    //    $('#myModal').modal('show');
-    //    //$("#SomeDivToShowTheResult").html(res);
-    //});
     $.ajax({
         type: "GET",
         url: "/Rooms/Create",
@@ -106,9 +96,9 @@ var DetailRooms = function (id) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                $('#headerText').text("Details");
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);
+                $('#headerText').html("Room Name - " + "<span style='color: red;'>" + $("#Header_Text").val() + "</span>");
             }
             HideModalLoader();
         },

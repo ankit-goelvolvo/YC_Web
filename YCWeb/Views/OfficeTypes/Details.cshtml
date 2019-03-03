@@ -5,17 +5,8 @@
 }
 
 <div class="container">
+    @Html.Hidden("Header_Text", Model.OfficeTypeName, new { @id = "Header_Text" })
     <div class="row details">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.OfficeTypeName)
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.OfficeTypeName)
-                </div>
-            </div>
-        </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">

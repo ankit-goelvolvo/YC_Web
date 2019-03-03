@@ -4,17 +4,8 @@
     Layout = null;
 }
 <div class="container">
+    @Html.Hidden("Header_Text", Model.OfficeFacilityName, new { @id = "Header_Text" })
     <div class="row details">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.OfficeFacilityName)
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.OfficeFacilityName)
-                </div>
-            </div>
-        </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
@@ -25,18 +16,18 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.Office.OfficeName)
+                    Office Name
                 </label>
                 <div>
                     @Html.DisplayFor(model => model.Office.OfficeName)
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
@@ -47,8 +38,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
@@ -59,6 +48,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
@@ -69,8 +60,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">

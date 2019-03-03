@@ -39,9 +39,9 @@ var DetailRoomType = function (id) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                $('#headerText').text("Details");
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);
+                $('#headerText').html("Room Type - " + "<span style='color: red;'>" + $("#Header_Text").val() + "</span>");
             }
             HideModalLoader();
         },

@@ -4,18 +4,9 @@
     Layout = null;
 }
 <div class="container">
+    @Html.Hidden("Header_Text", Model.RoomName, new { @id = "Header_Text" })
     <div class="row details">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.RoomName)
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.RoomName)
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="form-group">
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.Description)

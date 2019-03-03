@@ -4,14 +4,15 @@
     Layout = null;
 }
 <div class="container">
+    @Html.Hidden("Header_Text", Model.RoomAmenitiesName, new { @id = "Header_Text" })
     <div class="row details">
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
-                    Room Amenities
+                    Room Type
                 </label>
                 <div>
-                    @Html.DisplayFor(model => model.RoomAmenitiesName)
+                    @Html.DisplayFor(model => model.RoomType.RoomTypeName)
                 </div>
             </div>
         </div>
@@ -30,18 +31,6 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
-                    Room Type
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.RoomType.RoomTypeName)
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row details">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="font-weight-bold">
                     Created by
                 </label>
                 <div>
@@ -52,7 +41,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
-                    Updated Date
+                    Created Date
                 </label>
                 <div>
                     @Html.DisplayFor(model => model.CreatedDate)

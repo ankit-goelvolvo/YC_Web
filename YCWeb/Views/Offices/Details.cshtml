@@ -8,50 +8,43 @@
     var checkout = ((DateTime)Model.CheckOut).ToString("HH:mm") + " " + ((DateTime)Model.CheckOut).ToString("tt");
 }
 <div class="container">
+    @Html.Hidden("Header_Text", Model.OfficeName, new { @id = "Header_Text" })
     <div class="row details">
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="form-group">
                 <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.OfficeName)
+                    Address
                 </label>
                 <div>
-                    @Html.DisplayFor(model => model.OfficeName)
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.Address)
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.Address)
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.Phone)
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.Phone)
+                    @Html.DisplayFor(model => model.Address), @Html.DisplayFor(model => model.Phone), @Html.DisplayFor(model => model.Email)
                 </div>
             </div>
         </div>
     </div>
     <div class="row details">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.Email)
+                    Location
                 </label>
                 <div>
-                    @Html.DisplayFor(model => model.Email)
+                    @Html.DisplayFor(model => model.Location.LocationName)
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    Office Type
+                </label>
+                <div>
+                    @Html.DisplayFor(model => model.OfficeType.OfficeTypeName)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row details">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.CheckIn)
@@ -61,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.CheckOut)
@@ -70,10 +63,10 @@
                     @checkout
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
     <div class="row details">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.CGST)
@@ -83,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.SGST)
@@ -93,19 +86,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.Location.LocationName)
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.Location.LocationName)
-                </div>
-            </div>
-        </div>        
     </div>
     <div class="row details">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     Created By
@@ -115,7 +98,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     Created Date
@@ -125,19 +108,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.OfficeType.OfficeTypeName)
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.OfficeType.OfficeTypeName)
-                </div>
-            </div>
-        </div>
     </div>
     <div class="row details">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     Updated By
@@ -147,7 +120,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="font-weight-bold">
                     Updated Date
@@ -156,7 +129,7 @@
                     @Html.DisplayFor(model => model.UpdatedDate)
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
 <div>

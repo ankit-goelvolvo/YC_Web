@@ -13150,3 +13150,7 @@ td {
 .details {
     border-bottom: dashed 1px #dee2e6;
 }
+
+.form-control {
+    height: 40px !important;
+}

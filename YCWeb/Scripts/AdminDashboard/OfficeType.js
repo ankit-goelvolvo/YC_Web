@@ -94,10 +94,10 @@ var DetailOfficeType = function (id) {
                 $('#footerText').delay(5000).fadeOut();
             }
             else {
-                $('.modal-dialog').css('max-width', '50%');
-                $('#headerText').text("Details");
+                $('.modal-dialog').css('max-width', '45%');               
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);
+                $('#headerText').html("Office Type - " + "<span style='color: red;'>" + $("#Header_Text").val() + "</span>");
             }
             HideModalLoader();
         },

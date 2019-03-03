@@ -3,19 +3,13 @@
 @{
     Layout = null;
 }
+@{ 
+    string header = Model.RoomtypeName + " - " + Model.Description;
+}
 <div class="container">
+    @Html.Hidden("Header_Text", @header, new { @id = "Header_Text" })
     <div class="row details">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="font-weight-bold">
-                    @Html.DisplayNameFor(model => model.RoomtypeName)
-                </label>
-                <div>
-                    @Html.DisplayFor(model => model.RoomtypeName) -  @Html.DisplayFor(model => model.Description)
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="form-group">
                 <label class="font-weight-bold">
                     @Html.DisplayNameFor(model => model.FacilityName)

@@ -26,7 +26,7 @@
 };
 
 var CreateLocation = function () {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     var options = {
         "backdrop": "static",
@@ -90,7 +90,7 @@ var saveLocation = function () {
 };
 
 var DetailLocation = function (id) {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
@@ -104,10 +104,10 @@ var DetailLocation = function (id) {
                 $('#footerText').show();
                 $('#footerText').delay(5000).fadeOut();
             }
-            else {               
-                $('#headerText').text("Details");
+            else {                
                 $('#myModalContent').empty();
                 $('#myModalContent').html(data);
+                $('#headerText').html("Location - " + "<span style='color: red;'>" + $("#Header_Text").val() + "</span>");
             }
             HideModalLoader();
         },
@@ -119,7 +119,7 @@ var DetailLocation = function (id) {
 };
 
 var EditLocation = function (id) {
-    $('.modal-dialog').css('max-width', '50%');
+    $('.modal-dialog').css('max-width', '40%');
     ShowModalLoader();
     $.ajax({
         type: "GET",
