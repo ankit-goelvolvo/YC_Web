@@ -31,7 +31,7 @@
     function validate(input) {
         var emailReg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/;
         var phoneRegex = /[0-9 -()+]+$/;
-        var letterNumber = /((^[0-9]+[a-z]+)|(^[0-9]+[A-Z]+)|(^[A-Z]+[0-9]+)|(^[a-z]+[0-9]+))+[0-9a-z]+$/i;
+        var letterNumber = /((^[0-9]+[a-z]+)|(^[0-9]+[A-Z]+)|(^[A-Z]+[0-9]+)|(^[a-z]+[0-9]+))+$/i;
         var type = '';
         if (emailReg.test($(input).val().trim()) || $(input).val().trim().match(emailReg) == null) {
             type = 'email';
@@ -63,7 +63,7 @@
                 return false;
             }
             else if (letterNumber.test($(input).val()) == false) {
-                $('#passwordError').text("Password should be alphanumeric");
+                $('#passwordError').text("Wrong password. Try again or click on Forgot Password to reset it.");
                 $('#passwordError').show();
                 $('#passwordError').delay(5000).fadeOut();
                 return false;

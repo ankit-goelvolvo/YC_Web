@@ -378,6 +378,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Enumerator.cs" />
     <Compile Include="Models\Facilitiy.cs" />
     <Compile Include="Models\FacilityOption.cs" />
     <Compile Include="Models\Member.cs" />

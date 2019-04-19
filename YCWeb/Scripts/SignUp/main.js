@@ -19,4 +19,8 @@
     $("#txtMobile").inputFilter(function (value) {
         return /^-?\d*[.,]?\d*$/.test(value);
     });
+
+    $("#txtPassword").inputFilter(function (value) {
+        return /^[a-zA-Z0-9\s]*$/.test(value);
+    });
 })(jQuery);

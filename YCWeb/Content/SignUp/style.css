@@ -17,7 +17,7 @@ list-type-ulli, .socials {
     src: url("../fonts/poppins/poppins-v5-latin-300.eot");
     /* IE9 Compat Modes */
     src: local("Poppins Light"), local("Poppins-Light"), url("../../fonts/poppins/poppins-v5-latin-300.eot?#iefix") format("embedded-opentype"), url("../../fonts/poppins/poppins-v5-latin-300.woff2") format("woff2"), url("../../fonts/poppins/poppins-v5-latin-300.woff") format("woff"), url("../../fonts/poppins/poppins-v5-latin-300.ttf") format("truetype"), url("../../fonts/poppins/poppins-v5-latin-300.svg#Poppins") format("svg");
-    /* Legacy iOS */`
+    /* Legacy iOS */
 }
 /* poppins-300italic - latin */
 @font-face {
@@ -265,10 +265,10 @@ body {
   margin: 0 55px; }
 
 .form-title {
-  margin-bottom: 33px; }
+  margin-bottom: 15px; }
 
 .signup-image {
-  margin-top: 80px; }
+  margin-top: 40px; }
 
 figure {
   margin-bottom: 50px;
@@ -309,7 +309,7 @@ figure {
     margin-left: 75px;
     margin-right: 75px;
     padding-left: 34px;
-    padding-top: 68px;
+    padding-top: 10px;
 }
 
 .register-form {
@@ -603,4 +603,12 @@ label.valid {
     margin-left: 30px;
     width: 90%;
     border: none;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+a.text-danger:hover, a.text-danger:focus {
+    color: #bd2130 !important;
 }

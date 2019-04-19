@@ -11,6 +11,8 @@ using YCWeb.Models;
 using System.Collections.Specialized;
 using System.Configuration;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
+using Enumerate = YCWeb.Models.Enumerator;
 
 namespace YCWeb.Controllers
 {
@@ -66,9 +68,9 @@ namespace YCWeb.Controllers
         public ActionResult SignUp()
         {
             VMUser viewmodel = new VMUser();
-           
+
             ViewBag.UserTypeId = new SelectList(db.UserTypes, "UserTypeId", "UserTypeName");
-            ViewBag.Gender = new SelectList(FetchGender(), "Value", "Text");            
+            ViewBag.Gender = new SelectList(FetchGender(), "Value", "Text");
             return View(viewmodel);
         }
 
@@ -83,28 +85,46 @@ namespace YCWeb.Controllers
         [HttpPost]
         public ActionResult SignUp(VMUser viewmodel)
         {
-            if (viewmodel.VerificationCode==null)
+            if (ModelState.IsValid && viewmodel.VerificationCode == null)
             {
-                string sendSms = SendSMS(viewmodel);
-                JObject results = JObject.Parse(sendSms);
-
-                if (results["errors"] != null)
+                int totalExistRows = db.Users.Where(x => x.Email.ToUpper().Equals(viewmodel.Email.ToUpper())).Count();
+                if (totalExistRows > 0)
                 {
-                    foreach (var result in results["errors"])
+                    viewmodel.StatusCode = 3;
+                    viewmodel.StatusMessage = "User already present";
+                    return View(viewmodel);
+                }
+                if (!((Regex.Matches(viewmodel.Password, @"[a-zA-Z]").Count > 0) && (Regex.Matches(viewmodel.Password, @"[0-9]").Count > 0)))
+                {
+                    viewmodel.StatusCode = 7;
+                    viewmodel.StatusMessage = "Password should contain atleast 1 Alphabet and Number";
+                    return View(viewmodel);
+                }
+                if (viewmodel.VerificationCode == null)
+                {
+                    string sendSms = SendSMS(viewmodel);
+                    JObject results = JObject.Parse(sendSms);
+
+                    if (results["errors"] != null)
                     {
-                        viewmodel.StatusCode = 1;
-                        viewmodel.StatusMessage = (string)result["message"];
+                        foreach (var result in results["errors"])
+                        {
+                            viewmodel.StatusCode = 1;
+                            viewmodel.StatusMessage = (string)result["message"];
+                        }
+                    }
+                    else if (results["status"].ToString() == "success")
+                    {
+                        viewmodel.StatusCode = 2;
+                        viewmodel.StatusMessage = "Verification code sent. Please verify.";
                     }
                 }
-                else if (results["status"].ToString() == "success")
-                {
-                    viewmodel.StatusCode = 2;
-                    viewmodel.StatusMessage = "Verification code sent. Please verify.";
-                } 
             }
-            //viewmodel.VerificationCodeTemp = "9K3NPO";
-            //viewmodel.StatusCode = 2;
-            //viewmodel.StatusMessage = "Verification code sent. Please verify.";
+            else if (viewmodel.VerificationCode == null)
+            {
+                return View(viewmodel);
+            }
+
             if (viewmodel.StatusCode == 1)
             {
                 return View(viewmodel);
@@ -116,20 +136,13 @@ namespace YCWeb.Controllers
                 {
                     try
                     {
-                        int totalExistRows = db.Users.Where(x => x.Email.ToUpper().Equals(viewmodel.Email.ToUpper())).Count();
-                        if (totalExistRows > 0)
-                        {
-                            viewmodel.StatusCode = 3;
-                            viewmodel.StatusMessage = "User already present";
-                            return View(viewmodel);
-                        }
                         User user = new User()
                         {
                             FirstName = viewmodel.FirstName,
                             LastName = viewmodel.LastName,
                             Email = viewmodel.Email,
                             Mobile = viewmodel.Mobile,
-                            UserTypeId = 2,
+                            UserTypeId = Convert.ToInt32(Enumerate.UserTypeId.Admin),
                             MemberId = (Int32.Parse((from c in db.Users select c.MemberId).Max()) + 1).ToString()
                         };
                         db.Users.Add(user);
@@ -228,7 +241,7 @@ namespace YCWeb.Controllers
         {
             string number = "91" + user.Mobile;
             string passCode = RandomString(6);
-            String message = HttpUtility.UrlEncode("Welcome to Yarta Coorg! Your verification code is-"+ passCode);
+            String message = HttpUtility.UrlEncode("Welcome to Yarta Coorg! Your verification code is-" + passCode);
             using (var wb = new WebClient())
             {
                 byte[] response = wb.UploadValues(ConfigurationManager.AppSettings["SmsApiUrl"], new NameValueCollection()
@@ -244,7 +257,7 @@ namespace YCWeb.Controllers
             }
         }
 
-        
+
         public static string RandomString(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -260,8 +273,8 @@ namespace YCWeb.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Index","Login");
+            return RedirectToAction("Index", "Login");
         }
     }
-    
+
 }
